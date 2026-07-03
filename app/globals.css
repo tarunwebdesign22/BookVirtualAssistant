@@ -2,25 +2,83 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #000000;
+  --body: #5c6678;
+  --primary: #2646ab;
+  --primary-dark: #0650aa;
+  --secondary: #5267b7;
+  --accent: #2682cc;
+  --border-glass: rgba(255, 255, 255, 0.25);
+  --hero-mid: #f7f9fc;
+  --hero-end: #ebf1fa;
+  --footer: #000000;
+  --footer-mid: #0a1020;
+  --footer-end: #0d1a35;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-body: var(--body);
+  --color-primary: var(--primary);
+  --color-primary-dark: var(--primary-dark);
+  --color-secondary: var(--secondary);
+  --color-accent: var(--accent);
+  --color-hero-mid: var(--hero-mid);
+  --color-hero-end: var(--hero-end);
+  --color-footer: var(--footer);
+  --color-footer-mid: var(--footer-mid);
+  --color-footer-end: var(--footer-end);
+  --font-heading: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-body);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body);
+}
+
+.font-heading {
+  font-family: var(--font-heading);
+}
+
+.font-body {
+  font-family: var(--font-body);
+}
+
+.footer-pattern {
+  background-color: var(--footer);
+  background-image:
+    radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+/* Testimonials Swiper */
+.testimonials-swiper .swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  background: var(--body);
+  opacity: 0.35;
+  transition: all 0.3s ease;
+}
+
+.testimonials-swiper .swiper-pagination-bullet-active {
+  width: 28px;
+  border-radius: 5px;
+  background: var(--primary);
+  opacity: 1;
+}
+
+/* Smooth scrolling & reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
