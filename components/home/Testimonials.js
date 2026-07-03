@@ -3,8 +3,8 @@
 import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
-import Badge from "./Badge";
-import TestimonialCard from "./TestimonialCard";
+import Badge from "../Badge";
+import TestimonialCard from "../TestimonialCard";
 import "swiper/css";
 import "swiper/css/pagination";
 

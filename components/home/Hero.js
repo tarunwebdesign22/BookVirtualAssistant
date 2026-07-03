@@ -13,10 +13,10 @@ import {
   Bot,
   ArrowUpRight,
 } from "lucide-react";
-import Badge from "./Badge";
-import CTAButton from "./CTAButton";
-import GlassCard from "./GlassCard";
-import StatsCard from "./StatsCard";
+import Badge from "../Badge";
+import CTAButton from "../CTAButton";
+import GlassCard from "../GlassCard";
+import StatsCard from "../StatsCard";
 
 const containerVariants = {
   hidden: {},

@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { CheckCircle2 } from "lucide-react";
-import Badge from "./Badge";
+import Badge from "../Badge";
 
 const highlights = [
   "Get Support When You Need It",

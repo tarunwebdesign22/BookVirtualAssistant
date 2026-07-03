@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Trophy, MousePointerClick, Headset } from "lucide-react";
-import Badge from "./Badge";
+import Badge from "../Badge";
 
 const benefits = [
   {

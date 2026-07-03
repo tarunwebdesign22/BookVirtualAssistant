@@ -1,10 +1,11 @@
 import Header from "../components/Header";
-import Hero from "../components/Hero";
-import WhyChooseUs from "../components/WhyChooseUs";
-import Solutions from "../components/Solutions";
-import KeyBenefits from "../components/KeyBenefits";
-import CaseStudies from "../components/CaseStudies";
-import Testimonials from "../components/Testimonials";
+import Hero from "../components/home/Hero";
+import WhyChooseUs from "../components/home/WhyChooseUs";
+import Solutions from "../components/home/Solutions";
+import KeyBenefits from "../components/home/KeyBenefits";
+import CaseStudies from "../components/home/CaseStudies";
+import Testimonials from "../components/home/Testimonials";
+import LetsConnect from "../components/home/LetsConnect";
 import Footer from "../components/Footer";
 
 export default function Home() {
@@ -18,6 +19,7 @@ export default function Home() {
         <KeyBenefits />
         <CaseStudies />
         <Testimonials />
+        <LetsConnect />
       </main>
       <Footer />
     </>

@@ -4,9 +4,9 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import Badge from "./Badge";
-import CaseStudyCard from "./CaseStudyCard";
-import { homepageCaseStudies } from "./caseStudiesData";
+import Badge from "../Badge";
+import CaseStudyCard from "../CaseStudyCard";
+import { homepageCaseStudies } from "../caseStudiesData";
 import "swiper/css";
 
 export default function CaseStudies() {
