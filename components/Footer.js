@@ -3,9 +3,9 @@ import Image from "next/image";
 import { Phone, Mail, ArrowUpRight } from "lucide-react";
 
 const whyWeLinks = [
-  { label: "Outsourcing to India", href: "#outsourcing" },
-  { label: "How to Work With Us", href: "#how-it-works" },
-  { label: "Data Security", href: "#data-security" },
+  { label: "Outsourcing to India", href: "/outsource-to-india" },
+  { label: "How to Work With Us", href: "/how-to-work-with-us" },
+  { label: "Data Security", href: "/data-security" },
 ];
 
 const policyLinks = [

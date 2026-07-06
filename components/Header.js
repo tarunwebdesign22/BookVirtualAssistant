@@ -4,15 +4,69 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, ChevronRight } from "lucide-react";
 import CTAButton from "./CTAButton";
 
 const navLinks = [
   { label: "Home", href: "/" },
-  { label: "Services", href: "/#services" },
+  { label: "About Us", href: "/about-us" },
   { label: "Case Studies", href: "/case-studies" },
-  { label: "About", href: "/#about" },
   { label: "Contact", href: "/contact-us" },
+];
+
+const serviceMenu = [
+  {
+    label: "Hire Digital Marketer",
+    children: [
+      { label: "Hire SEO Expert", href: "/hire-seo-expert" },
+      { label: "Hire Google Ads Expert", href: "/hire-google-ads-expert" },
+      { label: "Hire Meta Ads Expert", href: "/hire-meta-ads-expert" },
+      { label: "Hire Social Media Expert", href: "/hire-social-media-expert" },
+      { label: "Hire Email Marketing Expert", href: "/hire-email-marketing-expert" },
+      { label: "Hire PR Expert", href: "/hire-pr-expert" },
+    ],
+  },
+  {
+    label: "Hire Web Developers",
+    children: [
+      { label: "Hire Shopify Developer", href: "/hire-shopify-developer" },
+      { label: "Hire WordPress Developer", href: "/hire-wordpress-developer" },
+      { label: "Hire Full Stack Developer", href: "/hire-full-stack-developer" },
+      { label: "Hire PHP Developer", href: "/hire-php-developer" },
+      { label: "Hire ROR Developer", href: "/hire-ror-developer" },
+      { label: "Hire Dot Net Developer", href: "/hire-dot-net-developer" },
+    ],
+  },
+  {
+    label: "Hire Ecommerce Specialist",
+    children: [
+      { label: "Hire Amazon VA", href: "/hire-amazon-va" },
+      { label: "Hire Walmart Expert", href: "/hire-walmart-expert" },
+      { label: "Hire eBay Expert", href: "/hire-ebay-expert" },
+      { label: "Hire ETSY Expert", href: "/hire-etsy-expert" },
+    ],
+  },
+  {
+    label: "Hire Data Experts",
+    children: [
+      { label: "Hire Data Analytics Experts", href: "/hire-data-analytics-experts" },
+      { label: "Hire Medical Billing Experts", href: "/hire-medical-billing-experts" },
+      { label: "Hire Data Entry Specialist", href: "/hire-data-entry-specialist" },
+      { label: "Hire Real Estate VA", href: "/hire-real-estate-va" },
+      { label: "Hire Power BI Expert", href: "/hire-power-bi-expert" },
+    ],
+  },
+  {
+    label: "Hire Mobile App Developers",
+    children: [
+      { label: "Hire React Native Developer", href: "/hire-react-native-developer" },
+      { label: "Hire Flutter Developer", href: "/hire-flutter-developer" },
+      { label: "Hire Swift Developer", href: "/hire-swift-developer" },
+      { label: "Hire Hybrid Developer", href: "/hire-hybrid-developer" },
+    ],
+  },
+  { label: "Hire Lead Generation Specialist", href: "/hire-lead-generation-specialist" },
+  { label: "Call Center Services", href: "/call-center-services" },
 ];
 
 const resourceLinks = [
@@ -56,6 +110,72 @@ function NavLink({ href, children, onClick }) {
         transition={{ duration: 0.2 }}
       />
     </Link>
+  );
+}
+
+function DropdownLink({ href, children, className = "" }) {
+  return (
+    <Link
+      href={href}
+      className={`block px-4 py-2.5 text-sm text-body transition-colors hover:bg-primary/5 hover:text-foreground focus-visible:outline-none focus-visible:bg-primary/5 focus-visible:text-foreground ${className}`}
+    >
+      {children}
+    </Link>
+  );
+}
+
+function ServicesDropdown() {
+  return (
+    <li className="group relative">
+      <button
+        type="button"
+        className="relative flex items-center gap-1 rounded-lg px-3.5 py-2 text-sm font-medium text-body transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <span className="relative z-10">Services</span>
+        <ChevronDown
+          className="relative z-10 h-4 w-4 transition-transform duration-200 group-hover:rotate-180 group-focus-within:rotate-180"
+          aria-hidden="true"
+        />
+        <motion.span
+          className="absolute inset-0 rounded-lg bg-primary/5"
+          initial={{ opacity: 0, scale: 0.8 }}
+          whileHover={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.2 }}
+        />
+      </button>
+
+      <ul
+        className="invisible absolute left-0 top-full z-50 mt-2 min-w-[260px] translate-y-1 rounded-xl border border-white/40 bg-white/95 py-2 opacity-0 shadow-xl shadow-primary/10 backdrop-blur-xl transition-all duration-200 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100"
+        role="list"
+      >
+        {serviceMenu.map((item) =>
+          item.children ? (
+            <li key={item.label} className="group/sub relative">
+              <span className="flex items-center justify-between px-4 py-2.5 text-sm font-medium text-foreground transition-colors hover:bg-primary/5">
+                {item.label}
+                <ChevronRight className="h-4 w-4 text-body/50" aria-hidden="true" />
+              </span>
+              <ul
+                className="invisible absolute left-full top-0 z-50 ml-1 min-w-[260px] rounded-xl border border-white/40 bg-white/95 py-2 opacity-0 shadow-xl shadow-primary/10 backdrop-blur-xl transition-all duration-200 group-hover/sub:visible group-hover/sub:opacity-100 group-focus-within/sub:visible group-focus-within/sub:opacity-100"
+                role="list"
+              >
+                {item.children.map((child) => (
+                  <li key={child.href}>
+                    <DropdownLink href={child.href}>{child.label}</DropdownLink>
+                  </li>
+                ))}
+              </ul>
+            </li>
+          ) : (
+            <li key={item.href}>
+              <DropdownLink href={item.href}>{item.label}</DropdownLink>
+            </li>
+          )
+        )}
+      </ul>
+    </li>
   );
 }
 
@@ -103,6 +223,8 @@ function ResourcesDropdown() {
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const [mobileServiceCategory, setMobileServiceCategory] = useState(null);
   const [mobileResourcesOpen, setMobileResourcesOpen] = useState(false);
 
   useEffect(() => {
@@ -122,6 +244,8 @@ export default function Header() {
   const closeMobile = () => {
     setMobileOpen(false);
     setMobileResourcesOpen(false);
+    setMobileServicesOpen(false);
+    setMobileServiceCategory(null);
   };
 
   return (
@@ -148,6 +272,7 @@ export default function Header() {
                 <NavLink href={link.href}>{link.label}</NavLink>
               </li>
             ))}
+            <ServicesDropdown />
             <ResourcesDropdown />
             {navLinks.slice(2).map((link) => (
               <li key={link.href}>
@@ -245,6 +370,98 @@ export default function Header() {
                   >
                     <button
                       type="button"
+                      onClick={() => {
+                        setMobileServicesOpen((open) => !open);
+                        setMobileServiceCategory(null);
+                      }}
+                      className="flex w-full items-center justify-between rounded-lg px-4 py-3.5 text-lg font-medium text-foreground transition-colors hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                      aria-expanded={mobileServicesOpen}
+                    >
+                      Services
+                      <ChevronDown
+                        className={`h-5 w-5 transition-transform duration-200 ${mobileServicesOpen ? "rotate-180" : ""}`}
+                        aria-hidden="true"
+                      />
+                    </button>
+
+                    <AnimatePresence>
+                      {mobileServicesOpen && (
+                        <motion.ul
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: "auto", opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.2 }}
+                          className="overflow-hidden pl-2"
+                          role="list"
+                        >
+                          {serviceMenu.map((item) =>
+                            item.children ? (
+                              <li key={item.label}>
+                                <button
+                                  type="button"
+                                  onClick={() =>
+                                    setMobileServiceCategory((current) =>
+                                      current === item.label ? null : item.label
+                                    )
+                                  }
+                                  className="flex w-full items-center justify-between rounded-lg px-4 py-3 text-base font-medium text-foreground transition-colors hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                                  aria-expanded={mobileServiceCategory === item.label}
+                                >
+                                  {item.label}
+                                  <ChevronDown
+                                    className={`h-4 w-4 transition-transform duration-200 ${mobileServiceCategory === item.label ? "rotate-180" : ""}`}
+                                    aria-hidden="true"
+                                  />
+                                </button>
+                                <AnimatePresence>
+                                  {mobileServiceCategory === item.label && (
+                                    <motion.ul
+                                      initial={{ height: 0, opacity: 0 }}
+                                      animate={{ height: "auto", opacity: 1 }}
+                                      exit={{ height: 0, opacity: 0 }}
+                                      transition={{ duration: 0.2 }}
+                                      className="overflow-hidden pl-4"
+                                      role="list"
+                                    >
+                                      {item.children.map((child) => (
+                                        <li key={child.href}>
+                                          <Link
+                                            href={child.href}
+                                            onClick={closeMobile}
+                                            className="block rounded-lg px-4 py-2.5 text-sm text-body transition-colors hover:bg-primary/5 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                                          >
+                                            {child.label}
+                                          </Link>
+                                        </li>
+                                      ))}
+                                    </motion.ul>
+                                  )}
+                                </AnimatePresence>
+                              </li>
+                            ) : (
+                              <li key={item.href}>
+                                <Link
+                                  href={item.href}
+                                  onClick={closeMobile}
+                                  className="block rounded-lg px-4 py-3 text-base text-body transition-colors hover:bg-primary/5 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                                >
+                                  {item.label}
+                                </Link>
+                              </li>
+                            )
+                          )}
+                        </motion.ul>
+                      )}
+                    </AnimatePresence>
+                  </motion.li>
+
+                  <motion.li
+                    initial={{ opacity: 0, x: -16 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.1, duration: 0.3 }}
+                  >
+                    <button
+                      type="button"
                       onClick={() => setMobileResourcesOpen((open) => !open)}
                       className="flex w-full items-center justify-between rounded-lg px-4 py-3.5 text-lg font-medium text-foreground transition-colors hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
                       aria-expanded={mobileResourcesOpen}
@@ -287,7 +504,7 @@ export default function Header() {
                       key={link.href}
                       initial={{ opacity: 0, x: -16 }}
                       animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: 0.05 * (i + 3), duration: 0.3 }}
+                      transition={{ delay: 0.05 * (i + 4), duration: 0.3 }}
                     >
                       <Link
                         href={link.href}
