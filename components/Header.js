@@ -282,10 +282,7 @@ export default function Header() {
           </ul>
 
           <div className="hidden items-center gap-2.5 lg:flex">
-            <CTAButton href="/contact-us" variant="secondary" size="sm">
-              Book Consultation
-            </CTAButton>
-            <CTAButton href="/contact-us" variant="primary" size="sm">
+            <CTAButton href="/get-started" variant="primary" size="sm">
               Hire Dedicated Team
             </CTAButton>
           </div>
@@ -523,7 +520,7 @@ export default function Header() {
                   transition={{ delay: 0.35, duration: 0.4 }}
                   className="mt-8 flex flex-col gap-3"
                 >
-                  <CTAButton href="/contact-us" variant="primary" size="lg" className="w-full text-center">
+                  <CTAButton href="/get-started" variant="primary" size="lg" className="w-full text-center">
                     Hire Dedicated Team
                   </CTAButton>
                   <CTAButton href="/contact-us" variant="secondary" size="lg" className="w-full text-center">
