@@ -309,7 +309,7 @@ export default function Hero() {
             <motion.h1
               id="hero-heading"
               variants={itemVariants}
-              className="font-heading mt-6 text-4xl font-bold leading-[1.1] tracking-tight text-foreground sm:text-5xl lg:text-[3.5rem] xl:text-6xl"
+              className="font-heading mt-6 text-[2.1rem] font-bold leading-[1.1] tracking-tight text-foreground sm:text-[2.6rem] lg:text-[2.95rem] xl:text-[3.2rem]"
             >
               Hire{" "}
               <span className="bg-gradient-to-r from-primary-dark via-primary to-accent bg-clip-text text-transparent">
