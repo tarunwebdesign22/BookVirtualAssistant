@@ -24,11 +24,13 @@ export default function ServicePage({ data }) {
     services,
     perks,
     highlights,
+    highlightsBeforeServices,
     reasons,
     reasonsAfterTestimonials,
     process,
     pricing,
     howToHire,
+    howToHireBeforePricing,
     industries,
     closing,
     testimonials,
@@ -43,6 +45,9 @@ export default function ServicePage({ data }) {
       {hero && <ServiceHero {...hero} form={contactForm} />}
       {stats && <ServiceStatsGrid {...stats} titleId="service-stats-heading" />}
       {intro && <ServiceIntro {...intro} />}
+      {highlightsBeforeServices && highlights && (
+        <ServiceHighlightCards {...highlights} titleId="service-highlights-heading" />
+      )}
       {services && (
         <ServiceFeaturesGrid
           {...services}
@@ -52,7 +57,7 @@ export default function ServicePage({ data }) {
       )}
       {introSecondary && <ServiceIntro {...introSecondary} />}
       {perks && <ServiceImagePerksGrid {...perks} titleId="service-perks-heading" />}
-      {highlights && (
+      {!highlightsBeforeServices && highlights && (
         <ServiceHighlightCards {...highlights} titleId="service-highlights-heading" />
       )}
       {showReasonsEarly && (
@@ -65,8 +70,13 @@ export default function ServicePage({ data }) {
         />
       )}
       {process && <ServiceProcessSteps {...process} titleId="service-process-heading" />}
+      {howToHireBeforePricing && howToHire && (
+        <ServiceHowToHire {...howToHire} titleId="service-hire-heading" />
+      )}
       {pricing && <ServicePricingPlans {...pricing} titleId="service-pricing-heading" />}
-      {howToHire && <ServiceHowToHire {...howToHire} titleId="service-hire-heading" />}
+      {!howToHireBeforePricing && howToHire && (
+        <ServiceHowToHire {...howToHire} titleId="service-hire-heading" />
+      )}
       {industries && <ServiceIndustriesGrid {...industries} titleId="service-industries-heading" />}
       {closing && <ServiceClosing {...closing} />}
       {testimonials && (

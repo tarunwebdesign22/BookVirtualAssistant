@@ -25,13 +25,7 @@ export default function PageHeader({ badge, title, subtitle, description, childr
             <p className="mt-4 text-lg font-medium text-foreground sm:text-xl">{subtitle}</p>
           )}
           {description && (
-            <p
-              className={`leading-relaxed text-body sm:text-lg ${
-                subtitle ? "mt-3 text-base" : "mt-4 text-lg sm:text-xl"
-              }`}
-            >
-              {description}
-            </p>
+            <p className="mt-4 text-base leading-relaxed text-body">{description}</p>
           )}
           {children}
         </motion.div>

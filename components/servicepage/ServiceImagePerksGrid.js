@@ -22,9 +22,11 @@ export default function ServiceImagePerksGrid({ badge, title, description, items
       <div className="pointer-events-none absolute -right-32 bottom-1/4 h-64 w-64 rounded-full bg-accent/8 blur-[90px]" />
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <ServiceSectionHeader badge={badge} title={title} description={description} titleId={titleId} />
+        {(badge || title || description) && (
+          <ServiceSectionHeader badge={badge} title={title} description={description} titleId={titleId} />
+        )}
 
-        <div className="mt-10 sm:mt-12">
+        <div className={`${badge || title || description ? "mt-10 sm:mt-12" : ""}`}>
           <div
             className="flex justify-center"
             role="tablist"

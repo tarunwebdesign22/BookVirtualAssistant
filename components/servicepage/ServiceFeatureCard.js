@@ -1,8 +1,17 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 
-export default function ServiceFeatureCard({ icon: Icon, title, description, index = 0, variant = "default" }) {
+export default function ServiceFeatureCard({
+  icon: Icon,
+  image,
+  imageAlt,
+  title,
+  description,
+  index = 0,
+  variant = "default",
+}) {
   const isCompact = variant === "compact";
 
   return (
@@ -17,9 +26,23 @@ export default function ServiceFeatureCard({ icon: Icon, title, description, ind
       }`}
     >
       <div className="pointer-events-none absolute -right-8 -top-8 h-28 w-28 rounded-full bg-primary/5 blur-2xl transition-all group-hover:bg-primary/10" />
-      <span className="relative flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-primary-dark text-white shadow-lg shadow-primary/25">
-        <Icon className="h-6 w-6" aria-hidden="true" />
-      </span>
+      {image ? (
+        <div className="relative mb-1 aspect-[16/10] w-full overflow-hidden rounded-xl ring-1 ring-primary/10">
+          <Image
+            src={image}
+            alt={imageAlt || title}
+            fill
+            className="object-cover transition-transform duration-300 group-hover:scale-105"
+            sizes="(max-width: 768px) 100vw, 33vw"
+          />
+        </div>
+      ) : (
+        Icon && (
+          <span className="relative flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-primary-dark text-white shadow-lg shadow-primary/25">
+            <Icon className="h-6 w-6" aria-hidden="true" />
+          </span>
+        )
+      )}
       <h3 className="relative mt-5 font-heading text-lg font-semibold text-foreground">{title}</h3>
       <p className="relative mt-3 flex-1 text-sm leading-relaxed text-body sm:text-base">{description}</p>
       <div className="relative mt-5 h-0.5 w-0 rounded-full bg-gradient-to-r from-primary-dark via-primary to-accent transition-all duration-500 group-hover:w-full" />

@@ -28,18 +28,19 @@ export default function ServiceHero({
           <div className="pointer-events-none absolute -right-32 top-1/3 h-[400px] w-[400px] rounded-full bg-accent/10 blur-[100px]" />
 
           <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
+            <div className="grid items-center gap-10 lg:grid-cols-[3fr_2fr] lg:gap-12">
               <motion.div
                 initial={{ opacity: 0, y: 24 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+                className="min-w-0"
               >
                 {badge && <Badge>{badge}</Badge>}
                 <h1 className="mt-6 font-heading text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
                   {title}
                 </h1>
                 {description && (
-                  <p className="mt-5 text-lg leading-relaxed text-body sm:text-xl">{description}</p>
+                  <div className="mt-5 text-base leading-relaxed text-body">{description}</div>
                 )}
                 {ctaLabel && form && (
                   <div className="mt-8">
@@ -54,7 +55,7 @@ export default function ServiceHero({
                 initial={{ opacity: 0, y: 24 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-                className="relative mx-auto aspect-[4/3] w-full max-w-lg"
+                className="relative mx-auto aspect-[4/3] w-full max-w-md lg:mx-0 lg:max-w-none"
               >
                 <Image
                   src={image}
@@ -62,7 +63,7 @@ export default function ServiceHero({
                   fill
                   priority
                   className="object-contain"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  sizes="(max-width: 1024px) 100vw, 40vw"
                 />
               </motion.div>
             </div>

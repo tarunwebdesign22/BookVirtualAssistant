@@ -8,6 +8,7 @@ import { containerVariants, itemVariants } from "./animations";
 export default function ServiceHowToHire({
   badge,
   title,
+  description,
   steps = [],
   ctaLabel = "Get Started",
   ctaHref = "/contact-us",
@@ -20,7 +21,7 @@ export default function ServiceHowToHire({
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white via-hero-mid to-hero-end" />
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <ServiceSectionHeader badge={badge} title={title} titleId={titleId} />
+        <ServiceSectionHeader badge={badge} title={title} description={description} titleId={titleId} />
 
         <motion.ol
           variants={containerVariants}
