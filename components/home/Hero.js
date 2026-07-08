@@ -16,7 +16,6 @@ import {
 import Badge from "../Badge";
 import CTAButton from "../CTAButton";
 import GlassCard from "../GlassCard";
-import StatsCard from "../StatsCard";
 
 const containerVariants = {
   hidden: {},
@@ -33,13 +32,6 @@ const itemVariants = {
     transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
   },
 };
-
-const stats = [
-  { value: "300+", label: "Virtual Employees", className: "absolute -left-2 top-8 z-20 sm:-left-6 sm:top-4" },
-  { value: "100+", label: "Business Domains", className: "absolute -right-2 top-16 z-20 sm:-right-8 sm:top-8" },
-  { value: "15+", label: "Years Experience", className: "absolute -left-4 bottom-24 z-20 sm:-left-10 sm:bottom-20" },
-  { value: "98%", label: "Client Satisfaction", className: "absolute -right-4 bottom-8 z-20 sm:-right-6 sm:bottom-4" },
-];
 
 function FloatingParticle({ style, delay = 0 }) {
   return (
@@ -59,10 +51,10 @@ function HeroVisual() {
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
   const springConfig = { stiffness: 150, damping: 20 };
-  const parallaxX = useSpring(useTransform(mouseX, [-0.5, 0.5], [-12, 12]), springConfig);
-  const parallaxY = useSpring(useTransform(mouseY, [-0.5, 0.5], [-8, 8]), springConfig);
-  const parallaxXReverse = useSpring(useTransform(mouseX, [-0.5, 0.5], [8, -8]), springConfig);
-  const parallaxYReverse = useSpring(useTransform(mouseY, [-0.5, 0.5], [6, -6]), springConfig);
+  const parallaxX = useSpring(useTransform(mouseX, [-0.5, 0.5], [-6, 6]), springConfig);
+  const parallaxY = useSpring(useTransform(mouseY, [-0.5, 0.5], [-4, 4]), springConfig);
+  const parallaxXReverse = useSpring(useTransform(mouseX, [-0.5, 0.5], [4, -4]), springConfig);
+  const parallaxYReverse = useSpring(useTransform(mouseY, [-0.5, 0.5], [3, -3]), springConfig);
 
   const handleMouseMove = (e) => {
     if (!ref.current) return;
@@ -74,7 +66,7 @@ function HeroVisual() {
   return (
     <div
       ref={ref}
-      className="relative mx-auto aspect-square w-full max-w-[540px]"
+      className="relative mx-auto aspect-square w-full max-w-[560px]"
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => {
@@ -96,22 +88,10 @@ function HeroVisual() {
       <FloatingParticle style={{ bottom: "20%", right: "25%" }} delay={1.8} />
       <FloatingParticle style={{ top: "55%", left: "45%" }} delay={2.4} />
 
-      {/* Stats cards — asymmetric layout */}
-      {stats.map((stat, i) => (
-        <StatsCard
-          key={stat.label}
-          value={stat.value}
-          label={stat.label}
-          className={stat.className}
-          delay={0.4 + i * 0.12}
-          floatDuration={5 + i * 0.5}
-        />
-      ))}
-
       {/* Central composition */}
       <motion.div
         style={{ x: parallaxX, y: parallaxY }}
-        className="absolute inset-8 sm:inset-10"
+        className="absolute inset-[4.25rem] sm:inset-[5rem]"
       >
         {/* Main Dashboard */}
         <GlassCard
@@ -119,7 +99,7 @@ function HeroVisual() {
           delay={0.2}
           float
           floatDuration={7}
-          floatY={6}
+          floatY={3}
           ariaLabel="Dashboard preview"
         >
           <div className="mb-4 flex items-center justify-between">
@@ -178,8 +158,11 @@ function HeroVisual() {
       </motion.div>
 
       {/* AI Assistant — top left */}
-      <motion.div style={{ x: parallaxXReverse, y: parallaxYReverse }} className="absolute left-0 top-0 z-30">
-        <GlassCard className="p-3 sm:p-3.5" delay={0.35} float floatDuration={5.5} floatY={5}>
+      <motion.div
+        style={{ x: parallaxXReverse, y: parallaxYReverse }}
+        className="absolute -left-1 top-2 z-30 sm:-left-3 sm:top-4"
+      >
+        <GlassCard className="p-3.5 sm:p-4" delay={0.35} float floatDuration={5.5} floatY={3}>
           <div className="flex items-center gap-2.5">
             <div className="relative flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-primary-dark to-primary shadow-lg shadow-primary/30">
               <Bot className="h-5 w-5 text-white" />
@@ -196,9 +179,9 @@ function HeroVisual() {
       {/* Chat Widget — bottom left */}
       <motion.div
         style={{ x: parallaxX, y: parallaxYReverse }}
-        className="absolute bottom-16 left-0 z-30 sm:bottom-20"
+        className="absolute -bottom-1 left-0 z-30 sm:-left-3 sm:-bottom-2"
       >
-        <GlassCard className="w-44 p-3 sm:w-48" delay={0.45} float floatDuration={6.2} floatY={4}>
+        <GlassCard className="w-44 p-3.5 sm:w-48 sm:p-4" delay={0.45} float floatDuration={6.2} floatY={3}>
           <div className="mb-2 flex items-center gap-2">
             <MessageSquare className="h-3.5 w-3.5 text-primary" />
             <span className="text-[10px] font-semibold text-foreground">Live Chat</span>
@@ -215,8 +198,11 @@ function HeroVisual() {
       </motion.div>
 
       {/* Calendar — top right */}
-      <motion.div style={{ x: parallaxXReverse, y: parallaxY }} className="absolute right-0 top-4 z-30 sm:top-0">
-        <GlassCard className="w-36 p-3 sm:w-40" delay={0.5} float floatDuration={5.8} floatY={5}>
+      <motion.div
+        style={{ x: parallaxXReverse, y: parallaxY }}
+        className="absolute right-0 top-2 z-30 sm:right-1 sm:top-4"
+      >
+        <GlassCard className="w-40 p-3.5 sm:w-44 sm:p-4" delay={0.5} float floatDuration={5.8} floatY={3}>
           <div className="mb-2 flex items-center gap-2">
             <Calendar className="h-3.5 w-3.5 text-secondary" />
             <span className="text-[10px] font-semibold text-foreground">Today</span>
@@ -246,9 +232,9 @@ function HeroVisual() {
       {/* Analytics — right */}
       <motion.div
         style={{ x: parallaxXReverse, y: parallaxYReverse }}
-        className="absolute -right-2 top-1/2 z-30 -translate-y-1/2 sm:-right-4"
+        className="absolute right-0 top-[47%] z-30 sm:-right-8"
       >
-        <GlassCard className="p-3" delay={0.55} float floatDuration={6.5} floatY={4}>
+        <GlassCard className="p-3.5 sm:p-4" delay={0.55} float floatDuration={6.5} floatY={3}>
           <div className="flex items-center gap-2">
             <BarChart3 className="h-4 w-4 text-accent" />
             <div>
@@ -263,8 +249,11 @@ function HeroVisual() {
       </motion.div>
 
       {/* Productivity card — bottom right */}
-      <motion.div style={{ x: parallaxX, y: parallaxY }} className="absolute bottom-0 right-2 z-30 sm:right-0">
-        <GlassCard className="p-3" delay={0.6} float floatDuration={5.3} floatY={6}>
+      <motion.div
+        style={{ x: parallaxX, y: parallaxY }}
+        className="absolute -bottom-1 right-0 z-30 sm:-right-2 sm:-bottom-2"
+      >
+        <GlassCard className="p-3.5 sm:p-4" delay={0.6} float floatDuration={5.3} floatY={3}>
           <div className="flex items-center gap-2">
             <CheckCircle2 className="h-4 w-4 text-emerald-500" />
             <div>
