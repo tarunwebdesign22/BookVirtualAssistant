@@ -28,7 +28,7 @@ function PlanCard({ plan, index }) {
           <div className="pointer-events-none absolute -right-10 -top-10 h-40 w-40 rounded-full bg-white/10 blur-3xl" />
           <div className="pointer-events-none absolute -bottom-10 -left-10 h-32 w-32 rounded-full bg-accent/20 blur-3xl" />
 
-          <div className="relative flex h-full flex-col rounded-[23px] bg-gradient-to-br from-primary-dark/95 via-primary/95 to-primary p-7 sm:p-8">
+          <div className="relative flex h-full flex-col rounded-lg bg-gradient-to-br from-primary-dark/95 via-primary/95 to-primary p-7 sm:p-8">
             <div className="mb-6 flex items-center justify-between gap-3">
               <span className="inline-flex items-center gap-1.5 rounded-full bg-white/15 px-3 py-1 text-[11px] font-bold uppercase tracking-widest text-white backdrop-blur-sm">
                 <Star className="h-3 w-3 fill-amber-300 text-amber-300" aria-hidden="true" />

@@ -64,11 +64,11 @@ export default function Footer() {
                 aria-label="Book Virtual Assistant — Home"
               >
                 <Image
-                  src="/images/bva-logo.png"
+                  src="/images/mainlogo-white.png"
                   alt="Book Virtual Assistant"
                   width={216}
                   height={58}
-                  className="h-11 w-auto sm:h-12"
+                  className="h-14 w-auto sm:h-16"
                 />
               </Link>
               <p className="mt-5 max-w-xs text-sm leading-relaxed text-white/60">

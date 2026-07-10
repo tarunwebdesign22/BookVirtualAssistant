@@ -47,7 +47,7 @@ export default function ServiceFormModal({ isOpen, onClose, title, subtitle, idP
             transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
             className="relative z-10 flex max-h-[90vh] w-full max-w-2xl flex-col overflow-hidden rounded-3xl bg-gradient-to-br from-primary/25 via-accent/15 to-secondary/20 p-px shadow-2xl shadow-primary/20"
           >
-            <div className="relative overflow-y-auto rounded-[calc(1.5rem-1px)]">
+            <div className="relative overflow-y-auto rounded-lg">
               <button
                 type="button"
                 onClick={onClose}

@@ -38,7 +38,7 @@ export default function CaseStudiesPage() {
                   onClick={() => setActiveTab(category.id)}
                   className={`rounded-xl px-4 py-2.5 font-heading text-sm font-semibold transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 sm:px-5 sm:py-3 sm:text-base ${
                     isActive
-                      ? "bg-gradient-to-r from-primary-dark to-primary text-white shadow-lg shadow-primary/25"
+                      ? "bg-black text-white shadow-lg shadow-black/25"
                       : "text-body hover:bg-primary/5 hover:text-foreground"
                   }`}
                 >

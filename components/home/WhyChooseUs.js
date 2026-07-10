@@ -2,16 +2,23 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { CheckCircle2 } from "lucide-react";
+import {
+  Clock3,
+  Globe2,
+  Users,
+  Handshake,
+  Sparkles,
+  BadgeDollarSign,
+} from "lucide-react";
 import Badge from "../Badge";
 
 const highlights = [
-  "Get Support When You Need It",
-  "Work Across Time Zones with Ease",
-  "Hassle-Free Teamwork, Anytime",
-  "Collaboration That Feels Close",
-  "Solutions Designed Just for You",
-  "Quality Support Without the High Costs",
+  { label: "Get Support When You Need It", icon: Clock3 },
+  { label: "Work Across Time Zones with Ease", icon: Globe2 },
+  { label: "Hassle-Free Teamwork, Anytime", icon: Users },
+  { label: "Collaboration That Feels Close", icon: Handshake },
+  { label: "Solutions Designed Just for You", icon: Sparkles },
+  { label: "Quality Support Without the High Costs", icon: BadgeDollarSign },
 ];
 
 export default function WhyChooseUs() {
@@ -56,9 +63,9 @@ export default function WhyChooseUs() {
             <motion.div
               animate={{ y: [0, -8, 0] }}
               transition={{ duration: 6.5, repeat: Infinity, ease: "easeInOut" }}
-              className="relative overflow-hidden rounded-[1.8rem] border border-white/80 bg-white p-2.5 shadow-2xl shadow-primary/12"
+              className="relative overflow-hidden rounded-lg border border-white/80 bg-white p-2.5 shadow-2xl shadow-primary/12"
             >
-              <div className="relative aspect-[16/11] overflow-hidden rounded-[1.3rem]">
+              <div className="relative aspect-[16/11] overflow-hidden rounded-lg">
                 <Image
                   src="/images/a-sleek-ai-powered-virtual-assistant-hologram-proj (1)-min.png"
                   alt="AI-powered virtual assistant setup"
@@ -76,7 +83,7 @@ export default function WhyChooseUs() {
               viewport={{ once: true }}
               transition={{ duration: 0.45, delay: 0.2 }}
               animate={{ y: [0, 7, 0] }}
-              className="absolute -bottom-8 -right-3 w-[44%] overflow-hidden rounded-2xl border-4 border-white bg-white shadow-xl shadow-primary/15"
+              className="absolute -bottom-8 -right-3 w-[44%] overflow-hidden rounded-lg border-4 border-white bg-white shadow-xl shadow-primary/15"
             >
               <div className="relative aspect-[4/3]">
                 <Image
@@ -95,7 +102,6 @@ export default function WhyChooseUs() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-            className="rounded-3xl border border-white/80 bg-white/80 p-6 shadow-xl shadow-primary/8 backdrop-blur-xl sm:p-8"
           >
             <p className="text-lg leading-relaxed text-body">
               The skilled professionals you hire through Book Virtual Assistant are just a click
@@ -103,24 +109,29 @@ export default function WhyChooseUs() {
               a team member right next to you.
             </p>
 
-            <div className="mt-7 grid gap-3 sm:grid-cols-2 sm:gap-3.5">
-              {highlights.map((item, index) => (
-                <motion.div
-                  key={item}
-                  initial={{ opacity: 0, y: 8 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.35, delay: 0.05 * index }}
-                  className="flex items-start gap-3"
-                >
-                  <span className="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-primary text-white shadow-sm shadow-primary/30">
-                    <CheckCircle2 className="h-3.5 w-3.5" aria-hidden="true" />
-                  </span>
-                  <p className="text-sm leading-relaxed text-foreground/90 sm:text-[0.95rem]">
-                    {item}
-                  </p>
-                </motion.div>
-              ))}
+            <div className="mt-8 grid gap-4 sm:grid-cols-2">
+              {highlights.map((item, index) => {
+                const Icon = item.icon;
+
+                return (
+                  <motion.div
+                    key={item.label}
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.35, delay: 0.05 * index }}
+                    className="group flex items-center gap-2.5"
+                  >
+                    <Icon
+                      className="h-4 w-4 shrink-0 text-primary transition-transform duration-300 group-hover:scale-110"
+                      aria-hidden="true"
+                    />
+                    <p className="text-sm font-medium leading-snug text-foreground sm:text-[0.95rem]">
+                      {item.label}
+                    </p>
+                  </motion.div>
+                );
+              })}
             </div>
           </motion.div>
         </div>

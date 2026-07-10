@@ -5,9 +5,9 @@ import { motion } from "framer-motion";
 
 const variants = {
   primary: {
-    base: "bg-gradient-to-r from-primary-dark to-primary text-white shadow-lg shadow-primary/25",
-    hover: "hover:shadow-xl hover:shadow-primary/35",
-    shine: "from-white/0 via-white/20 to-white/0",
+    base: "bg-black text-white shadow-lg shadow-black/25",
+    hover: "hover:shadow-xl hover:shadow-black/35",
+    shine: "from-white/0 via-white/15 to-white/0",
   },
   secondary: {
     base: "border border-white/40 bg-white/70 text-foreground shadow-sm backdrop-blur-md",

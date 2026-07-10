@@ -9,7 +9,7 @@ export default function ServiceContactForm({
   idPrefix = "service",
 }) {
   return (
-    <div className="overflow-hidden rounded-[calc(1.5rem-1px)] bg-white">
+    <div className="overflow-hidden rounded-lg bg-white">
       <div className="border-b border-slate-100 bg-gradient-to-r from-hero-mid/80 via-white to-hero-end/60 px-6 py-6 sm:px-8 sm:py-7">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex items-center gap-4">

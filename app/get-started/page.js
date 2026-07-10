@@ -102,7 +102,7 @@ export default function GetStartedPage() {
             <div className="mt-12 grid gap-6 lg:grid-cols-5 lg:gap-8">
               <div className="lg:col-span-3">
                 <div className="overflow-hidden rounded-3xl bg-gradient-to-br from-primary/25 via-accent/15 to-secondary/20 p-px shadow-2xl shadow-primary/10">
-                  <div className="rounded-[calc(1.5rem-1px)] bg-white">
+                  <div className="rounded-lg bg-white">
                     <div className="border-b border-slate-100 bg-gradient-to-r from-hero-mid/80 via-white to-hero-end/60 px-6 py-6 sm:px-8">
                       <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                         <div>

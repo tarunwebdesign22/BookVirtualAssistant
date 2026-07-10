@@ -32,6 +32,14 @@
   --font-heading: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
   --font-body: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-sans: var(--font-body);
+  --radius-sm: 6px;
+  --radius: 6px;
+  --radius-md: 6px;
+  --radius-lg: 6px;
+  --radius-xl: 6px;
+  --radius-2xl: 6px;
+  --radius-3xl: 6px;
+  --radius-4xl: 6px;
 }
 
 body {
@@ -66,7 +74,7 @@ body {
 
 .testimonials-swiper .swiper-pagination-bullet-active {
   width: 28px;
-  border-radius: 5px;
+  border-radius: 6px;
   background: var(--primary);
   opacity: 1;
 }
@@ -81,7 +89,7 @@ body {
 
 .solutions-swiper .swiper-pagination-bullet-active {
   width: 28px;
-  border-radius: 5px;
+  border-radius: 6px;
   background: var(--primary);
   opacity: 1;
 }

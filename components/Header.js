@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ChevronDown, ChevronRight } from "lucide-react";
+import { Menu, X, ChevronDown, ArrowUpRight, Megaphone, Code2, ShoppingBag, Database, Smartphone, UserPlus, Headphones } from "lucide-react";
 import CTAButton from "./CTAButton";
 
 const navLinks = [
@@ -17,6 +17,7 @@ const navLinks = [
 const serviceMenu = [
   {
     label: "Hire Digital Marketer",
+    icon: Megaphone,
     children: [
       { label: "Hire SEO Expert", href: "/hire-seo-expert" },
       { label: "Hire Google Ads Expert", href: "/hire-google-ads-expert" },
@@ -28,6 +29,7 @@ const serviceMenu = [
   },
   {
     label: "Hire Web Developers",
+    icon: Code2,
     children: [
       { label: "Hire Shopify Developer", href: "/hire-shopify-developer" },
       { label: "Hire WordPress Developer", href: "/hire-wordpress-developer" },
@@ -39,6 +41,7 @@ const serviceMenu = [
   },
   {
     label: "Hire Ecommerce Specialist",
+    icon: ShoppingBag,
     children: [
       { label: "Hire Amazon VA", href: "/hire-amazon-va" },
       { label: "Hire Walmart Expert", href: "/hire-walmart-expert" },
@@ -48,6 +51,7 @@ const serviceMenu = [
   },
   {
     label: "Hire Data Experts",
+    icon: Database,
     children: [
       { label: "Hire Data Analytics Experts", href: "/hire-data-analytics-experts" },
       { label: "Hire Medical Billing Experts", href: "/hire-medical-billing-experts" },
@@ -58,6 +62,7 @@ const serviceMenu = [
   },
   {
     label: "Hire Mobile App Developers",
+    icon: Smartphone,
     children: [
       { label: "Hire React Native Developer", href: "/hire-react-native-developer" },
       { label: "Hire Flutter Developer", href: "/hire-flutter-developer" },
@@ -65,8 +70,8 @@ const serviceMenu = [
       { label: "Hire Hybrid Developer", href: "/hire-hybrid-developer" },
     ],
   },
-  { label: "Hire Lead Generation Specialist", href: "/hire-lead-generation-specialist" },
-  { label: "Call Center Services", href: "/call-center-services" },
+  { label: "Hire Lead Generation Specialist", href: "/hire-lead-generation-specialist", icon: UserPlus },
+  { label: "Call Center Services", href: "/call-center-services", icon: Headphones },
 ];
 
 const resourceLinks = [
@@ -84,12 +89,12 @@ function Logo() {
       aria-label="Book Virtual Assistant — Home"
     >
       <Image
-        src="/images/bva-logo.png"
+        src="/images/mainlogo.png"
         alt="Book Virtual Assistant"
         width={216}
         height={58}
         priority
-        className="h-11 w-auto transition-transform duration-300 group-hover:scale-[1.02] sm:h-12"
+        className="h-14 w-auto transition-transform duration-300 group-hover:scale-[1.02] sm:h-16"
       />
     </Link>
   );
@@ -117,16 +122,34 @@ function DropdownLink({ href, children, className = "" }) {
   return (
     <Link
       href={href}
-      className={`block px-4 py-2.5 text-sm text-body transition-colors hover:bg-primary/5 hover:text-foreground focus-visible:outline-none focus-visible:bg-primary/5 focus-visible:text-foreground ${className}`}
+      className={`block px-4 py-2.5 text-sm text-white/75 transition-colors hover:bg-white/10 hover:text-white focus-visible:outline-none focus-visible:bg-white/10 focus-visible:text-white ${className}`}
     >
       {children}
     </Link>
   );
 }
 
-function ServicesDropdown() {
+function MegaMenuLink({ href, children }) {
   return (
-    <li className="group relative">
+    <Link
+      href={href}
+      className="group/link flex items-center justify-between rounded-lg px-2.5 py-1.5 text-sm text-white/70 transition-colors hover:bg-white/10 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+    >
+      <span>{children}</span>
+      <ArrowUpRight
+        className="h-3.5 w-3.5 shrink-0 opacity-0 transition-all group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 group-hover/link:opacity-100"
+        aria-hidden="true"
+      />
+    </Link>
+  );
+}
+
+function ServicesDropdown() {
+  const serviceGroups = serviceMenu.filter((item) => item.children);
+  const standaloneServices = serviceMenu.filter((item) => !item.children);
+
+  return (
+    <li className="group static lg:relative">
       <button
         type="button"
         className="relative flex items-center gap-1 rounded-lg px-3.5 py-2 text-sm font-medium text-body transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
@@ -146,35 +169,79 @@ function ServicesDropdown() {
         />
       </button>
 
-      <ul
-        className="invisible absolute left-0 top-full z-50 mt-2 min-w-[260px] translate-y-1 rounded-xl border border-white/40 bg-white/95 py-2 opacity-0 shadow-xl shadow-primary/10 backdrop-blur-xl transition-all duration-200 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100"
-        role="list"
+      <div
+        className="invisible fixed inset-x-0 top-[var(--header-height)] z-40 w-full border-b border-white/15 bg-gradient-to-b from-footer-mid via-footer-mid/98 to-footer-end opacity-0 shadow-2xl shadow-primary/30 backdrop-blur-xl transition-all duration-200 before:absolute before:inset-x-0 before:-top-3 before:h-3 before:content-[''] group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100"
+        role="region"
+        aria-label="Services menu"
       >
-        {serviceMenu.map((item) =>
-          item.children ? (
-            <li key={item.label} className="group/sub relative">
-              <span className="flex items-center justify-between px-4 py-2.5 text-sm font-medium text-foreground transition-colors hover:bg-primary/5">
-                {item.label}
-                <ChevronRight className="h-4 w-4 text-body/50" aria-hidden="true" />
-              </span>
-              <ul
-                className="invisible absolute left-full top-0 z-50 ml-1 min-w-[260px] rounded-xl border border-white/40 bg-white/95 py-2 opacity-0 shadow-xl shadow-primary/10 backdrop-blur-xl transition-all duration-200 group-hover/sub:visible group-hover/sub:opacity-100 group-focus-within/sub:visible group-focus-within/sub:opacity-100"
-                role="list"
+        <div className="pointer-events-none absolute -left-16 top-0 h-40 w-40 rounded-full bg-primary/20 blur-3xl" />
+        <div className="pointer-events-none absolute -right-16 bottom-0 h-40 w-40 rounded-full bg-accent/15 blur-3xl" />
+
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid gap-4 py-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+            {serviceGroups.map((item) => {
+              const Icon = item.icon;
+
+              return (
+                <div
+                  key={item.label}
+                  className="rounded-xl border border-white/10 bg-white/5 p-4 transition-colors hover:border-white/20 hover:bg-white/[0.08]"
+                >
+                  <div className="mb-3 flex items-center gap-3">
+                    <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-accent text-white shadow-lg shadow-primary/25">
+                      <Icon className="h-5 w-5" aria-hidden="true" />
+                    </span>
+                    <p className="font-heading text-sm font-semibold leading-snug text-white">{item.label}</p>
+                  </div>
+                  <ul className="space-y-0.5" role="list">
+                    {item.children.map((child) => (
+                      <li key={child.href}>
+                        <MegaMenuLink href={child.href}>{child.label}</MegaMenuLink>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              );
+            })}
+          </div>
+
+          <div className="border-t border-white/10 py-4">
+            <div className="grid gap-3 lg:grid-cols-2">
+              {standaloneServices.map((item) => {
+                const Icon = item.icon;
+
+                return (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className="group/standalone flex items-center gap-3 rounded-xl border border-white/10 bg-white/5 px-4 py-3 transition-all hover:border-accent/40 hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+                  >
+                    <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-white/10 text-accent transition-colors group-hover/standalone:bg-accent/20">
+                      <Icon className="h-4 w-4" aria-hidden="true" />
+                    </span>
+                    <span className="flex-1 text-sm font-medium text-white">{item.label}</span>
+                    <ArrowUpRight
+                      className="h-4 w-4 text-white/40 transition-all group-hover/standalone:translate-x-0.5 group-hover/standalone:-translate-y-0.5 group-hover/standalone:text-accent"
+                      aria-hidden="true"
+                    />
+                  </Link>
+                );
+              })}
+            </div>
+
+            <div className="mt-4 flex flex-wrap items-center justify-between gap-3 rounded-xl border border-white/10 bg-gradient-to-r from-primary/20 to-accent/10 px-4 py-3">
+              <p className="text-sm text-white/75">Need a full team instead of one role?</p>
+              <Link
+                href="/get-started"
+                className="inline-flex items-center gap-1.5 rounded-lg bg-black px-4 py-2 text-sm font-semibold text-white shadow-lg shadow-black/25 transition-all hover:bg-neutral-900 hover:shadow-xl hover:shadow-black/35 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40"
               >
-                {item.children.map((child) => (
-                  <li key={child.href}>
-                    <DropdownLink href={child.href}>{child.label}</DropdownLink>
-                  </li>
-                ))}
-              </ul>
-            </li>
-          ) : (
-            <li key={item.href}>
-              <DropdownLink href={item.href}>{item.label}</DropdownLink>
-            </li>
-          )
-        )}
-      </ul>
+                Hire Dedicated Team
+                <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
     </li>
   );
 }
@@ -202,14 +269,14 @@ function ResourcesDropdown() {
       </button>
 
       <ul
-        className="invisible absolute left-0 top-full z-50 mt-2 min-w-[220px] translate-y-1 rounded-xl border border-white/40 bg-white/95 py-2 opacity-0 shadow-xl shadow-primary/10 backdrop-blur-xl transition-all duration-200 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100"
+        className="invisible absolute left-0 top-full z-50 mt-2 min-w-[220px] translate-y-1 rounded-xl border border-white/15 bg-gradient-to-b from-footer-mid/95 to-footer-end/95 py-2 opacity-0 shadow-xl shadow-primary/25 backdrop-blur-xl transition-all duration-200 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100"
         role="list"
       >
         {resourceLinks.map((link) => (
           <li key={link.href}>
             <Link
               href={link.href}
-              className="block px-4 py-2.5 text-sm text-body transition-colors hover:bg-primary/5 hover:text-foreground focus-visible:outline-none focus-visible:bg-primary/5 focus-visible:text-foreground"
+              className="block px-4 py-2.5 text-sm text-white/75 transition-colors hover:bg-white/10 hover:text-white focus-visible:outline-none focus-visible:bg-white/10 focus-visible:text-white"
             >
               {link.label}
             </Link>
@@ -250,17 +317,18 @@ export default function Header() {
 
   return (
     <>
-      <header className="fixed inset-x-0 top-0 z-50 px-4 pt-4 sm:px-6 lg:px-8" role="banner">
+      <header
+        className={`fixed inset-x-0 top-0 z-50 w-full border-b bg-white [--header-height:5.5rem] transition-shadow duration-300 ${
+          scrolled ? "border-slate-200 shadow-md" : "border-slate-200/70"
+        }`}
+        role="banner"
+      >
         <motion.nav
           initial={{ y: -20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           aria-label="Main navigation"
-          className={`mx-auto flex max-w-7xl items-center justify-between gap-4 rounded-2xl border px-4 py-2.5 transition-all duration-500 sm:px-6 ${
-            scrolled
-              ? "border-white/40 bg-white/75 shadow-xl shadow-primary/8 backdrop-blur-xl"
-              : "border-white/20 bg-white/30 shadow-sm backdrop-blur-md"
-          }`}
+          className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8"
         >
           <div className="flex-shrink-0">
             <Logo />
@@ -290,7 +358,7 @@ export default function Header() {
           <button
             type="button"
             onClick={() => setMobileOpen(true)}
-            className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/30 bg-white/50 text-foreground backdrop-blur-md transition-colors hover:bg-white/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary lg:hidden"
+            className="flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 bg-white text-foreground transition-colors hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary lg:hidden"
             aria-label="Open navigation menu"
             aria-expanded={mobileOpen}
             aria-controls="mobile-menu"
@@ -327,9 +395,9 @@ export default function Header() {
               animate={{ y: 0, opacity: 1 }}
               exit={{ y: "-100%", opacity: 0 }}
               transition={{ type: "spring", stiffness: 300, damping: 35 }}
-              className="absolute inset-x-4 top-4 overflow-hidden rounded-2xl border border-white/25 bg-white/80 shadow-2xl backdrop-blur-xl"
+              className="absolute inset-x-0 top-0 overflow-hidden border-b border-slate-200 bg-white shadow-2xl"
             >
-              <div className="flex items-center justify-between border-b border-white/20 px-6 py-4">
+              <div className="flex items-center justify-between border-b border-slate-200 px-6 py-4">
                 <Logo />
                 <button
                   type="button"

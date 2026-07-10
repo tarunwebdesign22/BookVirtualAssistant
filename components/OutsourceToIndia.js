@@ -186,7 +186,7 @@ export default function OutsourceToIndia() {
             transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
             className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-primary/25 via-accent/15 to-secondary/20 p-px shadow-2xl shadow-primary/10"
           >
-            <div className="overflow-hidden rounded-[calc(1.5rem-1px)] bg-white">
+            <div className="overflow-hidden rounded-lg bg-white">
               <div className="border-b border-slate-100 bg-gradient-to-r from-hero-mid/80 via-white to-hero-end/60 px-6 py-6 sm:px-8 sm:py-7">
                 <div className="flex items-center gap-4">
                   <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-primary to-primary-dark text-white shadow-lg shadow-primary/30">
