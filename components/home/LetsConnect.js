@@ -1,8 +1,13 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { Mail, Phone } from "lucide-react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Pagination } from "swiper/modules";
 import ContactForm from "../ContactForm";
+import "swiper/css";
+import "swiper/css/pagination";
 
 const contactInfo = [
   {
@@ -18,6 +23,26 @@ const contactInfo = [
     href: "mailto:info@bookvirtualassistant.com",
   },
 ];
+
+const trustedLogos = [
+  { name: "Amazon Seller", src: "/images/awards/amazone-seller.jpg" },
+  { name: "Amazon SPN", src: "/images/awards/amazonspn.jpg" },
+  { name: "Amazon Sponsored", src: "/images/awards/amazonsponsored.jpg" },
+  { name: "Clutch", src: "/images/awards/clutch.jpg" },
+  { name: "eBay", src: "/images/awards/ebay.jpg" },
+  { name: "Flipkart Ads", src: "/images/awards/flipkart-ads.jpg" },
+  { name: "Google Ads", src: "/images/awards/Google-Ads.png" },
+  { name: "Meta", src: "/images/awards/Meta.png" },
+  { name: "MSME", src: "/images/awards/msme.jpg" },
+  { name: "nopCommerce", src: "/images/awards/nopcommerce.jpg" },
+  { name: "Payoneer", src: "/images/awards/payoneer.jpg" },
+  { name: "Shopify", src: "/images/awards/shopify.jpg" },
+];
+
+const trustedSlides = Array.from(
+  { length: Math.ceil(trustedLogos.length / 2) },
+  (_, index) => trustedLogos.slice(index * 2, index * 2 + 2)
+);
 
 export default function LetsConnect() {
   return (
@@ -58,47 +83,99 @@ export default function LetsConnect() {
           className="mt-10 overflow-hidden rounded-3xl bg-white shadow-2xl shadow-primary/10 lg:mt-12"
         >
           <div className="grid lg:grid-cols-5">
-            <div className="relative bg-gradient-to-br from-primary-dark via-primary to-primary/90 p-8 text-white sm:p-10 lg:col-span-2 lg:p-12">
-              <div className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full bg-white/10 blur-3xl" />
-              <div className="pointer-events-none absolute -bottom-12 -left-12 h-40 w-40 rounded-full bg-accent/20 blur-3xl" />
+            <div className="relative overflow-hidden p-8 text-white sm:p-10 lg:col-span-2 lg:min-h-full lg:p-12">
+              <Image
+                src="/images/contactform-one.webp"
+                alt=""
+                fill
+                sizes="(min-width: 1024px) 40vw, 100vw"
+                className="object-cover"
+                aria-hidden="true"
+              />
+              <div className="pointer-events-none absolute inset-0 bg-black/50" />
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/85 via-black/55 to-black/35" />
 
-              <div className="relative">
+              <div className="relative z-10 flex h-full flex-col">
                 <h3 className="font-heading text-2xl font-bold sm:text-3xl">Contact Info</h3>
                 <p className="mt-3 text-sm leading-relaxed text-white/80 sm:text-base">
                   Reach out to us with your query or concern
                 </p>
 
                 <ul className="mt-10 space-y-8" role="list">
-                  {contactInfo.map((item) => (
-                    <li key={item.label}>
-                      <a
-                        href={item.href}
-                        className="group flex items-start gap-4 rounded-xl transition-opacity hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
-                      >
-                        <span className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-white/15 ring-1 ring-white/20 transition-transform group-hover:scale-105">
-                          <item.icon className="h-5 w-5" aria-hidden="true" />
-                        </span>
-                        <span>
-                          <span className="block text-sm font-semibold text-white/90">{item.label}</span>
-                          {item.lines.map((line) => (
-                            <span key={line} className="mt-1 block text-sm text-white/75 sm:text-base">
-                              {line}
+                  {contactInfo.map((item) => {
+                    const Icon = item.icon;
+
+                    return (
+                      <li key={item.label}>
+                        <a
+                          href={item.href}
+                          className="group flex items-start gap-4 rounded-xl transition-opacity hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
+                        >
+                          <span className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-white/15 ring-1 ring-white/20 backdrop-blur-sm transition-transform group-hover:scale-105">
+                            <Icon className="h-5 w-5" aria-hidden="true" />
+                          </span>
+                          <span>
+                            <span className="block text-sm font-semibold text-white/90">
+                              {item.label}
                             </span>
-                          ))}
-                        </span>
-                      </a>
-                    </li>
-                  ))}
+                            {item.lines.map((line) => (
+                              <span
+                                key={line}
+                                className="mt-1 block text-sm text-white/75 sm:text-base"
+                              >
+                                {line}
+                              </span>
+                            ))}
+                          </span>
+                        </a>
+                      </li>
+                    );
+                  })}
                 </ul>
+
+                <div className="mt-10 border-t border-white/15 pt-8">
+                  <p className="text-sm font-semibold tracking-wide text-white/90">
+                    Trusted by
+                  </p>
+                  <div className="trusted-logos-swiper mt-4">
+                    <Swiper
+                      modules={[Autoplay, Pagination]}
+                      slidesPerView={1}
+                      spaceBetween={16}
+                      loop
+                      autoplay={{ delay: 2800, disableOnInteraction: false }}
+                      pagination={{ clickable: true }}
+                      className="!pb-9"
+                      aria-label="Trusted partner logos"
+                    >
+                      {trustedSlides.map((slideLogos, slideIndex) => (
+                        <SwiperSlide key={`trusted-slide-${slideIndex}`}>
+                          <div className="grid grid-cols-2 gap-3">
+                            {slideLogos.map((logo) => (
+                              <div
+                                key={logo.name}
+                                className="flex h-16 items-center justify-center rounded-lg bg-white/95 px-3 py-2 ring-1 ring-white/20"
+                              >
+                                <Image
+                                  src={logo.src}
+                                  alt={logo.name}
+                                  width={120}
+                                  height={48}
+                                  className="h-10 w-auto max-w-full object-contain"
+                                />
+                              </div>
+                            ))}
+                          </div>
+                        </SwiperSlide>
+                      ))}
+                    </Swiper>
+                  </div>
+                </div>
               </div>
             </div>
 
             <div className="bg-white p-8 sm:p-10 lg:col-span-3 lg:p-12">
-              <h3 className="font-heading text-2xl font-bold text-foreground sm:text-3xl">Get In Touch</h3>
-              <p className="mt-3 max-w-xl text-sm leading-relaxed text-body sm:text-base">
-                Fill out the form below and our team will get back to you with the right virtual
-                assistant solution for your business needs.
-              </p>
+              <h3 className="font-heading text-2xl font-bold text-foreground sm:text-3xl">Fill Form</h3>
               <div className="mt-8">
                 <ContactForm idPrefix="home" />
               </div>

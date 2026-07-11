@@ -1,35 +1,36 @@
 import Image from "next/image";
+import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 
 export default function SolutionCard({ item }) {
-  const Icon = item.icon;
-
   return (
-    <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-white/60 bg-white shadow-lg shadow-primary/8 transition-all duration-300 hover:-translate-y-1 hover:border-primary/20 hover:shadow-xl hover:shadow-primary/15">
-      <div className="relative aspect-[4/3] overflow-hidden bg-slate-100">
-        <Image
-          src={item.image}
-          alt={item.title}
-          fill
-          sizes="(min-width: 1024px) 28vw, (min-width: 768px) 40vw, 85vw"
-          className="object-cover transition-transform duration-700 group-hover:scale-105"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent" />
-        <span
-          className={`absolute left-4 top-4 flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br shadow-md backdrop-blur-sm ${item.accent}`}
-        >
-          <Icon className="h-5 w-5" aria-hidden="true" />
-        </span>
-      </div>
+    <article className="group h-full overflow-hidden rounded-lg bg-white shadow-md shadow-black/8 ring-1 ring-black/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-black/12">
+      <Link
+        href="/get-started"
+        className="relative block h-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+      >
+        <div className="relative aspect-[4/3] overflow-hidden">
+          <Image
+            src={item.image}
+            alt={item.title}
+            fill
+            sizes="(min-width: 1280px) 22vw, (min-width: 1024px) 28vw, (min-width: 640px) 45vw, 90vw"
+            className="object-cover transition-transform duration-700 group-hover:scale-105"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent" />
 
-      <div className="flex flex-1 flex-col p-5 sm:p-6">
-        <h3 className="font-heading text-lg font-semibold text-foreground sm:text-xl">{item.title}</h3>
-        <p className="mt-2 flex-1 text-sm leading-relaxed text-body line-clamp-3">{item.description}</p>
-        <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-primary transition-all group-hover:gap-2.5">
-          Learn more
-          <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-        </span>
-      </div>
+          <span className="absolute right-2.5 top-2.5 inline-flex h-8 w-8 items-center justify-center rounded-md bg-white/95 text-foreground shadow-md transition-all duration-300 group-hover:bg-black group-hover:text-white">
+            <ArrowUpRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true" />
+            <span className="sr-only">Learn more about {item.title}</span>
+          </span>
+
+          <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black via-black/90 to-transparent px-3 pb-3 pt-10 sm:px-3.5 sm:pb-3.5 sm:pt-12">
+            <h3 className="font-heading text-sm font-bold tracking-tight text-white sm:text-lg lg:text-xl">
+              {item.title}
+            </h3>
+          </div>
+        </div>
+      </Link>
     </article>
   );
 }

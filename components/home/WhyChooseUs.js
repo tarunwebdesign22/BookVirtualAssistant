@@ -67,7 +67,7 @@ export default function WhyChooseUs() {
             >
               <div className="relative aspect-[16/11] overflow-hidden rounded-lg">
                 <Image
-                  src="/images/a-sleek-ai-powered-virtual-assistant-hologram-proj (1)-min.png"
+                  src="/images/homepage-about-1.webp"
                   alt="AI-powered virtual assistant setup"
                   fill
                   sizes="(min-width: 1024px) 43vw, 92vw"
@@ -87,7 +87,7 @@ export default function WhyChooseUs() {
             >
               <div className="relative aspect-[4/3]">
                 <Image
-                  src="/images/about-2.webp"
+                  src="/images/homepage-about-2.webp"
                   alt="Team member collaborating remotely"
                   fill
                   sizes="(min-width: 1024px) 19vw, 38vw"

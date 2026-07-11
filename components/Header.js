@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown, ArrowUpRight, Megaphone, Code2, ShoppingBag, Database, Smartphone, UserPlus, Headphones } from "lucide-react";
 import CTAButton from "./CTAButton";
@@ -81,7 +82,7 @@ const resourceLinks = [
   { label: "Infrastructure", href: "/infrastructure" },
 ];
 
-function Logo() {
+function Logo({ scrolled = true }) {
   return (
     <Link
       href="/"
@@ -89,7 +90,7 @@ function Logo() {
       aria-label="Book Virtual Assistant — Home"
     >
       <Image
-        src="/images/mainlogo.png"
+        src={scrolled ? "/images/mainlogo.png" : "/images/mainlogo-white.png"}
         alt="Book Virtual Assistant"
         width={216}
         height={58}
@@ -100,16 +101,20 @@ function Logo() {
   );
 }
 
-function NavLink({ href, children, onClick }) {
+function NavLink({ href, children, onClick, scrolled = true }) {
   return (
     <Link
       href={href}
       onClick={onClick}
-      className="relative block rounded-lg px-3.5 py-2 text-sm font-medium text-body transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+      className={`relative block rounded-lg px-3.5 py-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 ${
+        scrolled
+          ? "text-body hover:text-foreground"
+          : "text-white/90 hover:text-white"
+      }`}
     >
       <span className="relative z-10">{children}</span>
       <motion.span
-        className="absolute inset-0 rounded-lg bg-primary/5"
+        className={`absolute inset-0 rounded-lg ${scrolled ? "bg-primary/5" : "bg-white/10"}`}
         initial={{ opacity: 0, scale: 0.8 }}
         whileHover={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.2 }}
@@ -144,7 +149,7 @@ function MegaMenuLink({ href, children }) {
   );
 }
 
-function ServicesDropdown() {
+function ServicesDropdown({ scrolled = true }) {
   const serviceGroups = serviceMenu.filter((item) => item.children);
   const standaloneServices = serviceMenu.filter((item) => !item.children);
 
@@ -152,7 +157,11 @@ function ServicesDropdown() {
     <li className="group static lg:relative">
       <button
         type="button"
-        className="relative flex items-center gap-1 rounded-lg px-3.5 py-2 text-sm font-medium text-body transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+        className={`relative flex items-center gap-1 rounded-lg px-3.5 py-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 ${
+          scrolled
+            ? "text-body hover:text-foreground"
+            : "text-white/90 hover:text-white"
+        }`}
         aria-haspopup="true"
         aria-expanded="false"
       >
@@ -162,7 +171,7 @@ function ServicesDropdown() {
           aria-hidden="true"
         />
         <motion.span
-          className="absolute inset-0 rounded-lg bg-primary/5"
+          className={`absolute inset-0 rounded-lg ${scrolled ? "bg-primary/5" : "bg-white/10"}`}
           initial={{ opacity: 0, scale: 0.8 }}
           whileHover={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.2 }}
@@ -246,12 +255,16 @@ function ServicesDropdown() {
   );
 }
 
-function ResourcesDropdown() {
+function ResourcesDropdown({ scrolled = true }) {
   return (
     <li className="group relative">
       <button
         type="button"
-        className="relative flex items-center gap-1 rounded-lg px-3.5 py-2 text-sm font-medium text-body transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+        className={`relative flex items-center gap-1 rounded-lg px-3.5 py-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 ${
+          scrolled
+            ? "text-body hover:text-foreground"
+            : "text-white/90 hover:text-white"
+        }`}
         aria-haspopup="true"
         aria-expanded="false"
       >
@@ -261,7 +274,7 @@ function ResourcesDropdown() {
           aria-hidden="true"
         />
         <motion.span
-          className="absolute inset-0 rounded-lg bg-primary/5"
+          className={`absolute inset-0 rounded-lg ${scrolled ? "bg-primary/5" : "bg-white/10"}`}
           initial={{ opacity: 0, scale: 0.8 }}
           whileHover={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.2 }}
@@ -288,6 +301,8 @@ function ResourcesDropdown() {
 }
 
 export default function Header() {
+  const pathname = usePathname();
+  const isHomePage = pathname === "/";
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
@@ -315,11 +330,15 @@ export default function Header() {
     setMobileServiceCategory(null);
   };
 
+  const isSolid = !isHomePage || scrolled;
+
   return (
     <>
       <header
-        className={`fixed inset-x-0 top-0 z-50 w-full border-b bg-white [--header-height:5.5rem] transition-shadow duration-300 ${
-          scrolled ? "border-slate-200 shadow-md" : "border-slate-200/70"
+        className={`fixed inset-x-0 top-0 z-50 w-full [--header-height:5.5rem] transition-all duration-300 ${
+          isSolid
+            ? "border-b border-slate-200 bg-white shadow-md"
+            : "border-b border-transparent bg-transparent"
         }`}
         role="banner"
       >
@@ -331,26 +350,39 @@ export default function Header() {
           className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8"
         >
           <div className="flex-shrink-0">
-            <Logo />
+            <Logo scrolled={isSolid} />
           </div>
 
           <ul className="hidden items-center gap-1 lg:flex" role="list">
             {navLinks.slice(0, 2).map((link) => (
               <li key={link.href}>
-                <NavLink href={link.href}>{link.label}</NavLink>
+                <NavLink href={link.href} scrolled={isSolid}>
+                  {link.label}
+                </NavLink>
               </li>
             ))}
-            <ServicesDropdown />
-            <ResourcesDropdown />
+            <ServicesDropdown scrolled={isSolid} />
+            <ResourcesDropdown scrolled={isSolid} />
             {navLinks.slice(2).map((link) => (
               <li key={link.href}>
-                <NavLink href={link.href}>{link.label}</NavLink>
+                <NavLink href={link.href} scrolled={isSolid}>
+                  {link.label}
+                </NavLink>
               </li>
             ))}
           </ul>
 
           <div className="hidden items-center gap-2.5 lg:flex">
-            <CTAButton href="/get-started" variant="primary" size="sm">
+            <CTAButton
+              href="/get-started"
+              variant="secondary"
+              size="sm"
+              className={
+                isSolid
+                  ? "!border-black !bg-transparent !text-black hover:!bg-black hover:!text-white"
+                  : "!border-white !bg-transparent !text-white hover:!bg-white hover:!text-black"
+              }
+            >
               Hire Dedicated Team
             </CTAButton>
           </div>
@@ -358,7 +390,11 @@ export default function Header() {
           <button
             type="button"
             onClick={() => setMobileOpen(true)}
-            className="flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 bg-white text-foreground transition-colors hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary lg:hidden"
+            className={`flex h-10 w-10 items-center justify-center rounded-xl border transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary lg:hidden ${
+              isSolid
+                ? "border-slate-200 bg-white text-foreground hover:bg-slate-50"
+                : "border-white/30 bg-white/10 text-white hover:bg-white/20"
+            }`}
             aria-label="Open navigation menu"
             aria-expanded={mobileOpen}
             aria-controls="mobile-menu"
@@ -398,7 +434,7 @@ export default function Header() {
               className="absolute inset-x-0 top-0 overflow-hidden border-b border-slate-200 bg-white shadow-2xl"
             >
               <div className="flex items-center justify-between border-b border-slate-200 px-6 py-4">
-                <Logo />
+                <Logo scrolled />
                 <button
                   type="button"
                   onClick={closeMobile}
@@ -588,7 +624,12 @@ export default function Header() {
                   transition={{ delay: 0.35, duration: 0.4 }}
                   className="mt-8 flex flex-col gap-3"
                 >
-                  <CTAButton href="/get-started" variant="primary" size="lg" className="w-full text-center">
+                  <CTAButton
+                    href="/get-started"
+                    variant="secondary"
+                    size="lg"
+                    className="w-full !border-black !bg-transparent !text-black text-center hover:!bg-black hover:!text-white"
+                  >
                     Hire Dedicated Team
                   </CTAButton>
                   <CTAButton href="/contact-us" variant="secondary" size="lg" className="w-full text-center">

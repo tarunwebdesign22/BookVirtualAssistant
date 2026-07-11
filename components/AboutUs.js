@@ -131,7 +131,7 @@ export default function AboutUs() {
               className="relative aspect-[4/3] lg:aspect-auto lg:min-h-[420px]"
             >
               <Image
-                src="/images/about-2.webp"
+                src="/images/aboutimage1.jpg"
                 alt="Book Virtual Assistant headquarters at Logix Cyber Park, Noida"
                 fill
                 className="object-cover"
@@ -244,7 +244,7 @@ export default function AboutUs() {
                 className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-white/50 shadow-xl shadow-primary/10"
               >
                 <Image
-                  src="/images/a-sleek-ai-powered-virtual-assistant-hologram-proj (1)-min.png"
+                  src="/images/aboutimage2.webp"
                   alt="Book Virtual Assistant team delivering remote services worldwide"
                   fill
                   className="object-cover"
@@ -308,12 +308,20 @@ export default function AboutUs() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-40px" }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="relative mt-16 overflow-hidden rounded-3xl bg-gradient-to-br from-primary-dark via-primary to-secondary p-8 text-center sm:mt-20 sm:p-12"
+          className="relative mt-16 overflow-hidden rounded-3xl p-8 text-center sm:mt-20 sm:p-12"
         >
-          <div className="pointer-events-none absolute -left-16 top-0 h-48 w-48 rounded-full bg-white/10 blur-3xl" />
-          <div className="pointer-events-none absolute -right-16 bottom-0 h-48 w-48 rounded-full bg-accent/20 blur-3xl" />
+          <Image
+            src="/images/bgcta.webp"
+            alt=""
+            fill
+            sizes="(min-width: 1280px) 80vw, 100vw"
+            className="object-cover"
+            aria-hidden="true"
+          />
+          <div className="pointer-events-none absolute inset-0 bg-black/65" />
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/70" />
 
-          <div className="relative">
+          <div className="relative z-10">
             <Building2 className="mx-auto h-10 w-10 text-white/80" aria-hidden="true" />
             <h2 className="mt-4 font-heading text-2xl font-semibold text-white sm:text-3xl">
               Ready to See Our HQ in Action?

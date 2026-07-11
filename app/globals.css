@@ -79,19 +79,14 @@ body {
   opacity: 1;
 }
 
-.solutions-swiper .swiper-pagination-bullet {
-  width: 10px;
-  height: 10px;
-  background: var(--body);
-  opacity: 0.35;
-  transition: all 0.3s ease;
+/* Contact trusted logos Swiper */
+.trusted-logos-swiper .swiper-pagination-bullet {
+  background: rgba(255, 255, 255, 0.45);
+  opacity: 1;
 }
 
-.solutions-swiper .swiper-pagination-bullet-active {
-  width: 28px;
-  border-radius: 6px;
-  background: var(--primary);
-  opacity: 1;
+.trusted-logos-swiper .swiper-pagination-bullet-active {
+  background: #ffffff;
 }
 
 /* Smooth scrolling & reduced motion */

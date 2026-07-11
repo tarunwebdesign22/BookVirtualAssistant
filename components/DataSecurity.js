@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import {
   Shield,
@@ -400,13 +401,20 @@ export default function DataSecurity() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-40px" }}
             transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-            className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-primary-dark via-primary to-secondary px-6 py-12 text-center sm:px-10 sm:py-16 lg:px-16"
+            className="relative overflow-hidden rounded-3xl px-6 py-12 text-center sm:px-10 sm:py-16 lg:px-16"
           >
-            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.12),transparent_50%)]" />
-            <div className="pointer-events-none absolute -right-24 -top-24 h-64 w-64 rounded-full bg-white/10 blur-3xl" />
-            <div className="pointer-events-none absolute -bottom-20 -left-20 h-56 w-56 rounded-full bg-accent/20 blur-3xl" />
+            <Image
+              src="/images/bgcta.webp"
+              alt=""
+              fill
+              sizes="(min-width: 1280px) 80vw, 100vw"
+              className="object-cover"
+              aria-hidden="true"
+            />
+            <div className="pointer-events-none absolute inset-0 bg-black/65" />
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/70" />
 
-            <div className="relative mx-auto max-w-2xl">
+            <div className="relative z-10 mx-auto max-w-2xl">
               <span className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-white/10 text-white ring-1 ring-white/20">
                 <Shield className="h-7 w-7" aria-hidden="true" />
               </span>

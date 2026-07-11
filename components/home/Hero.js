@@ -47,11 +47,11 @@ export default function Hero() {
           initial="hidden"
           animate="visible"
         >
-          <motion.div variants={itemVariants}>
+          {/* <motion.div variants={itemVariants}>
             <Badge className="border-white/20 bg-white/10 text-white/90 shadow-lg shadow-black/10 backdrop-blur-md">
               Trusted by 300+ Businesses Worldwide
             </Badge>
-          </motion.div>
+          </motion.div> */}
 
           <motion.h1
             id="hero-heading"

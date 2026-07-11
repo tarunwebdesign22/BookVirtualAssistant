@@ -168,7 +168,7 @@ export default function ContactForm({ idPrefix = "contact" }) {
     <form onSubmit={handleSubmit}>
       <div className="space-y-6">
         <div>
-          <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-body/50">
+          <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-foreground">
             Your details
           </p>
           <div className="grid gap-4 sm:grid-cols-2">
@@ -193,7 +193,7 @@ export default function ContactForm({ idPrefix = "contact" }) {
         </div>
 
         <div>
-          <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-body/50">
+          <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-foreground">
             How to reach you
           </p>
           <PhoneField
@@ -205,7 +205,7 @@ export default function ContactForm({ idPrefix = "contact" }) {
         </div>
 
         <div>
-          <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-body/50">
+          <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-foreground">
             Project details
           </p>
           <FormTextarea

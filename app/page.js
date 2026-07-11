@@ -5,6 +5,7 @@ import Solutions from "../components/home/Solutions";
 import KeyBenefits from "../components/home/KeyBenefits";
 import CaseStudies from "../components/home/CaseStudies";
 import Testimonials from "../components/home/Testimonials";
+import TrustedBy from "../components/home/TrustedBy";
 import LetsConnect from "../components/home/LetsConnect";
 import Footer from "../components/Footer";
 
@@ -19,6 +20,7 @@ export default function Home() {
         <KeyBenefits />
         <CaseStudies />
         <Testimonials />
+        <TrustedBy />
         <LetsConnect />
       </main>
       <Footer />

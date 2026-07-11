@@ -6,13 +6,13 @@ import { motion } from "framer-motion";
 const variants = {
   primary: {
     base: "bg-black text-white shadow-lg shadow-black/25",
-    hover: "hover:shadow-xl hover:shadow-black/35",
+    hover: "hover:bg-neutral-900 hover:shadow-xl hover:shadow-black/35",
     shine: "from-white/0 via-white/15 to-white/0",
   },
   secondary: {
     base: "border border-white/40 bg-white/70 text-foreground shadow-sm backdrop-blur-md",
-    hover: "hover:border-primary/30 hover:bg-white/90 hover:shadow-md",
-    shine: "from-transparent via-primary/10 to-transparent",
+    hover: "hover:border-black/20 hover:bg-white/90 hover:shadow-md",
+    shine: "from-transparent via-black/5 to-transparent",
   },
 };
 
@@ -48,7 +48,7 @@ export default function CTAButton({
       <Component
         {...linkProps}
         aria-label={ariaLabel || (typeof children === "string" ? children : undefined)}
-        className={`group relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-xl font-heading font-semibold transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 ${isFullWidth ? "w-full" : ""} ${styles.base} ${styles.hover} ${sizeClasses[size]} ${className}`}
+        className={`group relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-xl font-heading font-semibold transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 ${isFullWidth ? "w-full" : ""} ${styles.base} ${styles.hover} ${sizeClasses[size]} ${className}`}
       >
         <span
           className={`pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r ${styles.shine} transition-transform duration-700 group-hover:translate-x-full`}
