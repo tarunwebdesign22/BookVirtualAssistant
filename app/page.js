@@ -20,7 +20,7 @@ export default function Home() {
         <KeyBenefits />
         <CaseStudies />
         <Testimonials />
-        <TrustedBy />
+        {/* <TrustedBy /> */}
         <LetsConnect />
       </main>
       <Footer />

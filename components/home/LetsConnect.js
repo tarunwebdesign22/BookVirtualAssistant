@@ -133,7 +133,7 @@ export default function LetsConnect() {
                   })}
                 </ul>
 
-                <div className="mt-10 border-t border-white/15 pt-8">
+                {/* <div className="mt-10 border-t border-white/15 pt-8">
                   <p className="text-sm font-semibold tracking-wide text-white/90">
                     Trusted by
                   </p>
@@ -170,7 +170,7 @@ export default function LetsConnect() {
                       ))}
                     </Swiper>
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
 
