@@ -270,6 +270,8 @@ export default function HireFullstackDeveloperPage() {
             },
             introSecondary: {
               title: "With BVA, You Gain More Than a Developer",
+              image: "/images/services/fullstack-banner-1.png",
+              imageAlt: "Full stack developers delivering end-to-end solutions",
               paragraphs: [
                 <>
                   Take a step ahead of your competitors and{" "}

@@ -264,6 +264,22 @@ export default function HireSwiftDeveloperPage() {
                 },
               ],
             },
+            intro: {
+              title: "Why Hire Swift Developers from Book Virtual Assistant",
+              image: "/images/services/best-swift-developers-for-hire-bn.png",
+              imageAlt: "Best Swift Developers For Hire",
+              paragraphs: [
+                <>
+                  Book Virtual Assistant connects you with highly skilled Swift developers who bring innovation
+                  and expertise to your iOS app development—from simple complementary apps to comprehensive
+                  software for large organizations.
+                </>,
+                <>
+                  Our Swift developers deliver with efficiency and design in mind, helping you build powerful,
+                  relevant applications tailored to your business goals.
+                </>,
+              ],
+            },
             services: {
               badge: "Our Services",
               title: "Transform Ideas with Expert Swift Developers",

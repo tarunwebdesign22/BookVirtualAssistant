@@ -308,6 +308,8 @@ export default function HireShopifyDeveloperPage() {
             },
             intro: {
               title: "Why choose Book Virtual Assistant for Shopify Development?",
+              image: "/images/services/shopify-banner-1.png",
+              imageAlt: "Shopify developers building online stores",
               paragraphs: [
                 <>
                   By choosing to <span className="font-semibold text-foreground">hire Shopify developers</span>{" "}

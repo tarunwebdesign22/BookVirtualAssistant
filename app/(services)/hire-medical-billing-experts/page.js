@@ -133,6 +133,8 @@ export default function HireMedicalBillingExpertsPage() {
             },
             intro: {
               title: "Want to Turn Denials into Payments? Outsource Medical Billing Services to BVA",
+              image: "/images/services/seo-expert-bg.webp",
+              imageAlt: "Medical billing specialists processing claims",
               paragraphs: [
                 <>
                   Struggling with payment denials? Book Virtual Assistant is the{" "}

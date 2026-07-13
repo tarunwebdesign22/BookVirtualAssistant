@@ -302,6 +302,8 @@ export default function HireEbayExpertPage() {
             },
             introSecondary: {
               title: "Why Hire an eBAy Expert from Book Virtual Assistant?",
+              image: "/images/services/ebay-listing-experts-bn.png",
+              imageAlt: "eBay experts optimizing listings and sales",
               paragraphs: [
                 <>
                   Book Virtual Assistant is a seasoned provider of ebay services, and our dedicated team will

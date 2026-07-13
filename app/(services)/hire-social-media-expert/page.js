@@ -241,6 +241,8 @@ export default function HireSocialMediaExpertPage() {
             intro: {
               title: "How Our Social Media Experts Help You",
               paragraphs: introParagraphs,
+              image: "/images/services/seo-expert-bg.webp",
+              imageAlt: "Social media experts managing brand campaigns",
             },
             contactForm: {
               title: "Share Your Requirement",

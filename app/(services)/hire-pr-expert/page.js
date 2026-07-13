@@ -267,6 +267,8 @@ export default function HirePrExpertPage() {
             intro: {
               title: "Partner With BVA's Professional PR Expert",
               paragraphs: introParagraphs,
+              image: "/images/services/seo-expert-bg.webp",
+              imageAlt: "PR experts managing brand reputation",
             },
             contactForm: {
               title: "Share Your Requirement",

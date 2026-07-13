@@ -292,6 +292,8 @@ export default function HirePowerBiExpertPage() {
             },
             introSecondary: {
               title: "Benefits of Hiring Power BI Experts from Book Virtual Assistant",
+              image: "/images/services/hire-power-bi-expert-bn.png",
+              imageAlt: "Power BI experts creating dashboards and reports",
               paragraphs: [],
             },
             perks: {

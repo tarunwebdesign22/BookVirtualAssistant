@@ -297,6 +297,8 @@ export default function HireRealEstateVaPage() {
             },
             introSecondary: {
               title: "Why Book Virtual Assistant Stands Out",
+              image: "/images/services/hire-real-estate-va-bn.png",
+              imageAlt: "Real estate virtual assistants supporting agencies",
               paragraphs: [
                 <>
                   Choosing the right VA provider can make all the difference. Here's why Book Virtual

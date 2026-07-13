@@ -305,6 +305,8 @@ export default function HireEtsyExpertPage() {
             },
             introSecondary: {
               title: "Why Should You Hire an Etsy Virtual Assistant from Book Virtual Assistant?",
+              image: "/images/services/etsy-expert-to-optimize-your-store-bn.png",
+              imageAlt: "Etsy experts optimizing online stores",
               paragraphs: [
                 <>
                   Book Virtual Assistant is a seasoned provider of Etsy services, and our dedicated team will

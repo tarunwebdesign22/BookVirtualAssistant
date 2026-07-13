@@ -248,6 +248,8 @@ export default function HireDataEntrySpecialistPage() {
             },
             intro: {
               title: "Reasons to Choose Offshore Data Entry Experts from India",
+              image: "/images/services/seo-expert-bg.webp",
+              imageAlt: "Data entry specialists working accurately",
               paragraphs: [
                 <>
                   India has become a global hub for outsourcing data entry services due to its skilled

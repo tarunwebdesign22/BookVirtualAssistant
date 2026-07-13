@@ -242,6 +242,8 @@ export default function HireGoogleAdsExpertPage() {
             intro: {
               title: "About us : Your Trusted Google Ads Partner",
               paragraphs: introParagraphs,
+              image: "/images/services/google-ads-expert-bg.webp",
+              imageAlt: "Google Ads experts managing PPC campaigns and performance",
             },
             contactForm: {
               title: "Share Your Requirement",

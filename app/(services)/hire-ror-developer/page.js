@@ -288,6 +288,8 @@ export default function HireRorDeveloperPage() {
             },
             introSecondary: {
               title: "With BVA, You Gain More Than a Developer",
+              image: "/images/services/ruby-banner-1.png",
+              imageAlt: "Ruby on Rails developers building web apps",
               paragraphs: [
                 <>
                   Take a step ahead of your competitors and{" "}

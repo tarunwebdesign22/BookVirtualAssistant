@@ -90,7 +90,7 @@ function Logo({ scrolled = true }) {
       aria-label="Book Virtual Assistant — Home"
     >
       <Image
-        src={scrolled ? "/images/mainlogo.png" : "/images/mainlogo-white.png"}
+        src={scrolled ? "/images/mainlogo-black.png" : "/images/mainlogo-white.png"}
         alt="Book Virtual Assistant"
         width={216}
         height={58}
@@ -138,7 +138,7 @@ function MegaMenuLink({ href, children }) {
   return (
     <Link
       href={href}
-      className="group/link flex items-center justify-between rounded-lg px-2.5 py-1.5 text-sm text-white/70 transition-colors hover:bg-white/10 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+      className="group/link flex items-center justify-between rounded-lg px-2.5 py-1.5 text-xs text-white/70 transition-colors hover:bg-white/10 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
     >
       <span>{children}</span>
       <ArrowUpRight

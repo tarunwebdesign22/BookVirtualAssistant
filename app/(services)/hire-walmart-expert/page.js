@@ -357,6 +357,8 @@ export default function HireWalmartExpertPage() {
             },
             introSecondary: {
               title: "Why Hire a Walmart Expert from Book Virtual Assistant?",
+              image: "/images/services/walmart-experts-for-hire-bn.png",
+              imageAlt: "Walmart marketplace experts managing growth",
               paragraphs: [
                 <>
                   When you{" "}

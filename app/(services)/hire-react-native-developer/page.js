@@ -293,6 +293,22 @@ export default function HireReactNativeDeveloperPage() {
                 },
               ],
             },
+            intro: {
+              title: "Why Hire React Native Developers from Book Virtual Assistant",
+              image: "/images/services/hire-the-best-react-native-developers-bn.png",
+              imageAlt: "Hire the Best React Native Developers",
+              paragraphs: [
+                <>
+                  For efficient cross-platform app development, Book Virtual Assistant provides experienced
+                  React Native developers who build scalable, performance-driven, feature-rich apps aligned
+                  with your company objectives.
+                </>,
+                <>
+                  Whether you need a new app from scratch or improvements to an existing one, our team is ready
+                  to deliver outstanding mobile experiences for your target audience.
+                </>,
+              ],
+            },
             services: {
               badge: "Our Services",
               title: "Comprehensive React Native Development Services",

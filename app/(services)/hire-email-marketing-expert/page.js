@@ -263,6 +263,8 @@ export default function HireEmailMarketingExpertPage() {
             intro: {
               title: "Book Virtual Assistant: Your Trusted Email Marketing Agency",
               paragraphs: introParagraphs,
+              image: "/images/services/seo-expert-bg.webp",
+              imageAlt: "Email marketing experts crafting campaigns",
             },
             contactForm: {
               title: "Share Your Requirement",

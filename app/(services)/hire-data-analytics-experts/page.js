@@ -284,6 +284,8 @@ export default function HireDataAnalyticsExpertsPage() {
             },
             introSecondary: {
               title: "Benefits of Hiring Data Analytics Experts from Book Virtual Assistant",
+              image: "/images/services/data-analytics-in-India-bn.png",
+              imageAlt: "Data analytics experts reviewing business insights",
               paragraphs: [],
             },
             perks: {

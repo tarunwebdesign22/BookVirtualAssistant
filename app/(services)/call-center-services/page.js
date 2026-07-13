@@ -198,6 +198,8 @@ export default function CallCenterServicesPage() {
             intro: {
               title: "Why Choose Book Virtual Assistant for Call Center Outsourcing Services?",
               paragraphs: introParagraphs,
+              image: "/images/services/seo-expert-bg.webp",
+              imageAlt: "Call center outsourcing team supporting customers",
             },
             contactForm: {
               title: "Share Your Requirement",

@@ -220,6 +220,8 @@ export default function HireMetaAdsExpertPage() {
             intro: {
               title: "Drive Results With A Meta Ads Expert at Your Side",
               paragraphs: introParagraphs,
+              image: "/images/services/google-ads-expert-bg.webp",
+              imageAlt: "Meta Ads experts optimizing paid social campaigns",
             },
             contactForm: {
               title: "Share Your Requirement",

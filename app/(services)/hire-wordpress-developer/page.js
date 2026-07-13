@@ -279,6 +279,8 @@ export default function HireWordpressDeveloperPage() {
             },
             introSecondary: {
               title: "We Offer More Than Development Services",
+              image: "/images/services/wordpress-banner-1.png",
+              imageAlt: "WordPress developers building websites",
               paragraphs: [
                 <>
                   Take a step ahead of your competitors and{" "}

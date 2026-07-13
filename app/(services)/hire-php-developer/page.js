@@ -280,6 +280,8 @@ export default function HirePhpDeveloperPage() {
             },
             introSecondary: {
               title: "With BVA, You Gain More Than a Developer",
+              image: "/images/services/php-banner-1.png",
+              imageAlt: "PHP developers building web applications",
               paragraphs: [
                 <>
                   Take a step ahead of your competitors and{" "}

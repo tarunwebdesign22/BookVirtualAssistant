@@ -275,6 +275,8 @@ export default function HireSeoExpertPage() {
             intro: {
               title: "The Smart Move to Hire SEO Experts from India for Your Business",
               paragraphs: introParagraphs,
+              image: "/images/services/seo-expert-bg.webp",
+              imageAlt: "SEO experts analyzing search rankings and growth strategies",
             },
             contactForm: {
               title: "Share Your Requirement",

@@ -300,6 +300,8 @@ export default function HireAmazonVaPage() {
             },
             introSecondary: {
               title: "Why Choose Book Virtual Assistant for Hiring Amazon VAs?",
+              image: "/images/services/amazon-virtual-assistants-online-bn.png",
+              imageAlt: "Amazon virtual assistants managing seller accounts",
               paragraphs: [
                 <>
                   Book Virtual Assistant understands the specific challenges of managing a successful Amazon

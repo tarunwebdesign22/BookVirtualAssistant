@@ -276,6 +276,8 @@ export default function HireDotNetDeveloperPage() {
             },
             introSecondary: {
               title: "With BVA, You Gain More Than a Developer",
+              image: "/images/services/dotnet-banner-1.png",
+              imageAlt: ".NET developers building enterprise applications",
               paragraphs: [
                 <>
                   Take a step ahead of your competitors and{" "}

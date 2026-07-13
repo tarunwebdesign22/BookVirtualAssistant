@@ -271,6 +271,23 @@ export default function HireHybridDeveloperPage() {
                 },
               ],
             },
+            intro: {
+              title: "Why Hire Hybrid App Developers from Book Virtual Assistant",
+              image: "/images/services/hire-dedicated-hybrid-developers-bn.png",
+              imageAlt: "Hire Dedicated Hybrid Developers",
+              paragraphs: [
+                <>
+                  Connect with hybrid app developers who specialize in apps that perform well on smartphones,
+                  tablets, and desktops. Our team helps you build versatile experiences across iOS, Android,
+                  and the web.
+                </>,
+                <>
+                  When you hire a hybrid app developer team from Book Virtual Assistant, your app is optimized
+                  for every platform with advanced technologies and strategies that deliver a smooth, efficient
+                  user experience.
+                </>,
+              ],
+            },
             services: {
               badge: "Our Services",
               title: "Comprehensive Hybrid App Development for Multi-Device Success",

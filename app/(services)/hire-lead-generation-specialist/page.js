@@ -293,6 +293,22 @@ export default function HireLeadGenerationSpecialistPage() {
                 },
               ],
             },
+            intro: {
+              title: "Why Hire Lead Generation Specialists from Book Virtual Assistant",
+              image: "/images/services/hire-lead-generation-specialist-bn.png",
+              imageAlt: "Hire Lead Generation Specialists",
+              paragraphs: [
+                <>
+                  Boost business growth with lead generation experts from Book Virtual Assistant. As a leading
+                  India-based outsourcing company, we focus on quality—generating high-quality leads and
+                  nurturing them with proven strategies and advanced tools.
+                </>,
+                <>
+                  Our specialists help you attract the right prospects and convert interest into measurable
+                  pipeline growth tailored to your business needs.
+                </>,
+              ],
+            },
             services: {
               badge: "Our Services",
               title: "Comprehensive Lead Generation Services Tailored for Your Business",
