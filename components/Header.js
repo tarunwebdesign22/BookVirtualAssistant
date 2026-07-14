@@ -90,7 +90,7 @@ function Logo({ scrolled = true }) {
       aria-label="Book Virtual Assistant — Home"
     >
       <Image
-        src={scrolled ? "/images/mainlogo-black.png" : "/images/mainlogo-white.png"}
+        src={scrolled ? "/images/mainlogodark.png" : "/images/mainlogolight.png"}
         alt="Book Virtual Assistant"
         width={216}
         height={58}

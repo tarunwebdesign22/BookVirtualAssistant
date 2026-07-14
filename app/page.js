@@ -15,11 +15,11 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
-        <WhyChooseUs />
         <Solutions />
-        <KeyBenefits />
         <CaseStudies />
         <Testimonials />
+        <KeyBenefits />
+        <WhyChooseUs />
         {/* <TrustedBy /> */}
         <LetsConnect />
       </main>

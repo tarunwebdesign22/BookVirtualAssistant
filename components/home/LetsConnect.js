@@ -133,44 +133,33 @@ export default function LetsConnect() {
                   })}
                 </ul>
 
-                {/* <div className="mt-10 border-t border-white/15 pt-8">
-                  <p className="text-sm font-semibold tracking-wide text-white/90">
-                    Trusted by
+                <div className="mt-10 border-t border-white/15 pt-8 mt-auto">
+                  <p className="text-sm font-semibold tracking-wide text-white/90 mb-4">
+                    Highly Rated On
                   </p>
-                  <div className="trusted-logos-swiper mt-4">
-                    <Swiper
-                      modules={[Autoplay, Pagination]}
-                      slidesPerView={1}
-                      spaceBetween={16}
-                      loop
-                      autoplay={{ delay: 2800, disableOnInteraction: false }}
-                      pagination={{ clickable: true }}
-                      className="!pb-9"
-                      aria-label="Trusted partner logos"
-                    >
-                      {trustedSlides.map((slideLogos, slideIndex) => (
-                        <SwiperSlide key={`trusted-slide-${slideIndex}`}>
-                          <div className="grid grid-cols-2 gap-3">
-                            {slideLogos.map((logo) => (
-                              <div
-                                key={logo.name}
-                                className="flex h-16 items-center justify-center rounded-lg bg-white/95 px-3 py-2 ring-1 ring-white/20"
-                              >
-                                <Image
-                                  src={logo.src}
-                                  alt={logo.name}
-                                  width={120}
-                                  height={48}
-                                  className="h-10 w-auto max-w-full object-contain"
-                                />
-                              </div>
-                            ))}
-                          </div>
-                        </SwiperSlide>
-                      ))}
-                    </Swiper>
+                  <div className="grid grid-cols-2 gap-4">
+                    {[
+                      { name: "Clutch", src: "/images/stats-clutch.webp" },
+                      { name: "DesignRush", src: "/images/stats-designrush.webp" },
+                      { name: "GoodFirms", src: "/images/stats-goodfirm.webp" },
+                      { name: "Google", src: "/images/stats-google.webp" },
+                      { name: "Trustpilot", src: "/images/stats-trustpilot.webp" },
+                    ].map((logo) => (
+                      <div
+                        key={logo.name}
+                        className="flex h-14 items-center justify-start opacity-75 transition-opacity hover:opacity-100"
+                      >
+                        <Image
+                          src={logo.src}
+                          alt={logo.name}
+                          width={140}
+                          height={56}
+                          className="h-10 w-auto max-w-full object-contain brightness-0 invert"
+                        />
+                      </div>
+                    ))}
                   </div>
-                </div> */}
+                </div>
               </div>
             </div>
 

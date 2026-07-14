@@ -64,7 +64,7 @@ export default function Footer() {
                 aria-label="Book Virtual Assistant — Home"
               >
                 <Image
-                  src="/images/mainlogo-white.png"
+                  src="/images/mainlogolight.png"
                   alt="Book Virtual Assistant"
                   width={216}
                   height={58}
