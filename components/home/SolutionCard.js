@@ -1,36 +1,133 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
+import { ChevronRight } from "lucide-react";
+
+function LearnMore({ href, title, dark = false }) {
+  return (
+    <Link
+      href={href}
+      className={`mt-4 inline-flex items-center gap-1 text-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 ${
+        dark ? "text-sky-400 hover:text-sky-300" : "text-primary hover:text-primary-dark"
+      }`}
+    >
+      Learn more
+      <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
+      <span className="sr-only">about {title}</span>
+    </Link>
+  );
+}
+
+function CardShell({ children, dark = false, className = "" }) {
+  return (
+    <article
+      className={`group h-full overflow-hidden rounded-lg transition-all duration-300 hover:-translate-y-0.5 ${
+        dark
+          ? "bg-[#0b1220] shadow-lg shadow-black/25 ring-1 ring-white/10"
+          : "bg-[#f3f4f6] shadow-sm shadow-black/5 ring-1 ring-black/5 hover:shadow-md hover:shadow-black/8"
+      } ${className}`}
+    >
+      {children}
+    </article>
+  );
+}
 
 export default function SolutionCard({ item }) {
-  return (
-    <article className="group h-full overflow-hidden rounded-lg bg-white shadow-md shadow-black/8 ring-1 ring-black/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-black/12">
-      <Link
-        href="/get-started"
-        className="relative block h-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
-      >
-        <div className="relative aspect-[4/3] overflow-hidden">
-          <Image
-            src={item.image}
-            alt={item.title}
-            fill
-            sizes="(min-width: 1280px) 22vw, (min-width: 1024px) 28vw, (min-width: 640px) 45vw, 90vw"
-            className="object-cover transition-transform duration-700 group-hover:scale-105"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent" />
+  const { title, description, image, href = "/get-started", variant = "standard", theme = "light" } =
+    item;
+  const dark = theme === "dark";
 
-          <span className="absolute right-2.5 top-2.5 inline-flex h-8 w-8 items-center justify-center rounded-md bg-white/95 text-foreground shadow-md transition-all duration-300 group-hover:bg-black group-hover:text-white">
-            <ArrowUpRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true" />
-            <span className="sr-only">Learn more about {item.title}</span>
-          </span>
+  if (variant === "horizontal" || variant === "horizontal-reverse") {
+    const reverse = variant === "horizontal-reverse";
 
-          <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black via-black/90 to-transparent px-3 pb-3 pt-10 sm:px-3.5 sm:pb-3.5 sm:pt-12">
-            <h3 className="font-heading text-sm font-bold tracking-tight text-white sm:text-lg lg:text-xl">
-              {item.title}
+    return (
+      <CardShell dark={dark} className="min-h-[200px]">
+        <div
+          className={`flex h-full flex-col gap-4 p-4 sm:flex-row sm:items-center sm:gap-5 sm:p-5 ${
+            reverse ? "sm:flex-row-reverse" : ""
+          }`}
+        >
+          <div className="relative aspect-[4/5] w-full shrink-0 overflow-hidden rounded-lg sm:aspect-auto sm:h-[168px] sm:w-[38%] sm:max-w-[200px]">
+            <Image
+              src={image}
+              alt={title}
+              fill
+              sizes="(min-width: 1024px) 18vw, 90vw"
+              className="object-cover transition-transform duration-700 group-hover:scale-105"
+            />
+          </div>
+          <div className={`flex min-w-0 flex-1 flex-col justify-center ${dark ? "text-white" : ""}`}>
+            <h3
+              className={`font-heading text-lg font-bold tracking-tight sm:text-xl ${
+                dark ? "text-white" : "text-foreground"
+              }`}
+            >
+              {title}
             </h3>
+            <p className={`mt-2 text-sm leading-relaxed ${dark ? "text-white/70" : "text-body"}`}>
+              {description}
+            </p>
+            <LearnMore href={href} title={title} dark={dark} />
           </div>
         </div>
-      </Link>
-    </article>
+      </CardShell>
+    );
+  }
+
+  if (variant === "featured") {
+    return (
+      <CardShell dark={dark} className="flex flex-col">
+        <div className="relative m-4 mb-0 aspect-[16/11] overflow-hidden rounded-lg sm:m-5 sm:mb-0 sm:aspect-auto sm:min-h-[280px] lg:min-h-[320px] lg:flex-1">
+          <Image
+            src={image}
+            alt={title}
+            fill
+            sizes="(min-width: 1024px) 40vw, 100vw"
+            className="object-cover transition-transform duration-700 group-hover:scale-105"
+            priority
+          />
+        </div>
+        <div className={`px-5 pb-5 pt-5 sm:px-6 sm:pb-6 ${dark ? "text-white" : ""}`}>
+          <h3
+            className={`font-heading text-xl font-bold tracking-tight sm:text-2xl ${
+              dark ? "text-white" : "text-foreground"
+            }`}
+          >
+            {title}
+          </h3>
+          <p className={`mt-2 max-w-md text-sm leading-relaxed sm:text-[0.95rem] ${dark ? "text-white/70" : "text-body"}`}>
+            {description}
+          </p>
+          <LearnMore href={href} title={title} dark={dark} />
+        </div>
+      </CardShell>
+    );
+  }
+
+  // standard / bottom cards
+  return (
+    <CardShell dark={dark} className="flex flex-col">
+      <div className="relative m-4 mb-0 aspect-[16/11] overflow-hidden rounded-lg sm:m-5 sm:mb-0">
+        <Image
+          src={image}
+          alt={title}
+          fill
+          sizes="(min-width: 1024px) 28vw, (min-width: 640px) 45vw, 100vw"
+          className="object-cover transition-transform duration-700 group-hover:scale-105"
+        />
+      </div>
+      <div className={`flex flex-1 flex-col px-5 pb-5 pt-5 sm:px-6 sm:pb-6 ${dark ? "text-white" : ""}`}>
+        <h3
+          className={`font-heading text-lg font-bold tracking-tight sm:text-xl ${
+            dark ? "text-white" : "text-foreground"
+          }`}
+        >
+          {title}
+        </h3>
+        <p className={`mt-2 flex-1 text-sm leading-relaxed ${dark ? "text-white/70" : "text-body"}`}>
+          {description}
+        </p>
+        <LearnMore href={href} title={title} dark={dark} />
+      </div>
+    </CardShell>
   );
 }
