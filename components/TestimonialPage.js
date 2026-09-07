@@ -1,5 +1,6 @@
 import PageHeader from "./PageHeader";
 import TestimonialCard from "./TestimonialCard";
+import TestimonialSectionBackground from "./TestimonialSectionBackground";
 
 const testimonials = [
   {
@@ -114,21 +115,30 @@ const testimonials = [
 
 export default function TestimonialPage() {
   return (
-    <>
-      <PageHeader
-        badge="Clients"
-        title="Testimonial"
-        subtitle="Your input is important to us. Please provide your valuable feedback."
-        description="Here are some testimonials from our clients"
-      />
+    <div className="relative overflow-hidden">
+      <TestimonialSectionBackground />
 
-      <section className="mx-auto max-w-7xl px-4 pb-20 sm:px-6 sm:pb-28 lg:px-8">
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
-          {testimonials.map((item) => (
-            <TestimonialCard key={`${item.name}-${item.role || item.location}`} testimonial={item} bordered />
-          ))}
-        </div>
-      </section>
-    </>
+      <div className="relative">
+        <PageHeader
+          badge="Clients"
+          title="Testimonial"
+          subtitle="Your input is important to us. Please provide your valuable feedback."
+          description="Here are some testimonials from our clients"
+          transparent
+        />
+
+        <section className="mx-auto max-w-7xl px-4 pb-20 sm:px-6 sm:pb-28 lg:px-8">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
+            {testimonials.map((item) => (
+              <TestimonialCard
+                key={`${item.name}-${item.role || item.location}`}
+                testimonial={item}
+                bordered
+              />
+            ))}
+          </div>
+        </section>
+      </div>
+    </div>
   );
 }

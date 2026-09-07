@@ -69,7 +69,8 @@ export default function Solutions() {
       className="relative overflow-hidden py-12 sm:py-16 lg:py-20"
       aria-labelledby="solutions-heading"
     >
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white via-[#f7f8fa] to-white" />
+      <div
+        className="pointer-events-none absolute inset-0 bg-[#f1f1f1]"/>
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <motion.div

@@ -48,14 +48,13 @@ function BenefitCard({ benefit, index }) {
     <motion.article
       variants={cardVariants}
       whileHover={{ y: -6, transition: { duration: 0.25 } }}
-      className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-white/70 bg-white p-6 shadow-lg shadow-primary/5 transition-shadow duration-300 hover:border-primary/15 hover:shadow-xl hover:shadow-primary/10 sm:p-8"
+      className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-white/15 bg-white/95 p-6 shadow-lg shadow-black/20 backdrop-blur-sm transition-shadow duration-300 hover:border-accent/40 hover:shadow-xl hover:shadow-primary/20 sm:p-8"
     >
-      {/* Hover gradient wash */}
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-primary/[0.03] via-transparent to-accent/[0.04] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
       <div className="relative flex items-start gap-4">
-        <div className="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-primary/10 to-secondary/15 ring-1 ring-primary/10 transition-all duration-300 group-hover:from-primary/15 group-hover:to-accent/20 group-hover:ring-primary/20">
-          <Icon className="h-7 w-7 text-primary transition-transform duration-300 group-hover:scale-110" aria-hidden="true" />
+        <div className="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-accent text-white shadow-lg shadow-primary/25 transition-all duration-300 group-hover:scale-105">
+          <Icon className="h-7 w-7" aria-hidden="true" />
         </div>
         <div className="min-w-0 flex-1 pt-0.5">
           <span className="font-heading text-xs font-semibold uppercase tracking-wider text-primary/70">
@@ -71,7 +70,6 @@ function BenefitCard({ benefit, index }) {
         {benefit.description}
       </p>
 
-      {/* Bottom accent line */}
       <div className="relative mt-6 h-0.5 w-0 rounded-full bg-gradient-to-r from-primary-dark via-primary to-accent transition-all duration-500 group-hover:w-full" />
     </motion.article>
   );
@@ -81,15 +79,15 @@ export default function KeyBenefits() {
   return (
     <section
       id="benefits"
-      className="relative overflow-hidden py-12 sm:py-16 lg:py-20"
+      className="relative overflow-hidden py-14 sm:py-18 lg:py-24"
       aria-labelledby="benefits-heading"
     >
-      {/* Background */}
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white via-hero-mid to-hero-end" />
-      <div className="pointer-events-none absolute left-1/2 top-0 h-px w-3/4 -translate-x-1/2 bg-gradient-to-r from-transparent via-primary/15 to-transparent" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-footer-mid via-footer-mid/98 to-footer-end" />
+      <div className="pointer-events-none absolute -left-16 top-0 h-40 w-40 rounded-full bg-primary/20 blur-3xl" />
+      <div className="pointer-events-none absolute -right-16 bottom-0 h-40 w-40 rounded-full bg-accent/15 blur-3xl" />
+      <div className="pointer-events-none absolute left-1/2 top-0 h-px w-3/4 -translate-x-1/2 bg-gradient-to-r from-transparent via-white/20 to-transparent" />
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -97,22 +95,23 @@ export default function KeyBenefits() {
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           className="mx-auto max-w-2xl text-center"
         >
-          <Badge className="mb-4">Key Benefits</Badge>
+          <Badge tone="dark" className="mb-4">
+            Key Benefits
+          </Badge>
           <h2
             id="benefits-heading"
-            className="font-heading text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-[2.75rem]"
+            className="font-heading text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-[2.75rem]"
           >
             What Are the{" "}
-            <span className="bg-gradient-to-r from-primary-dark via-primary to-accent bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-white via-accent to-secondary bg-clip-text text-transparent">
               Key Benefits?
             </span>
           </h2>
-          <p className="mt-4 text-lg text-body">
+          <p className="mt-4 text-lg text-white/75">
             Three major benefits of having a remote workforce.
           </p>
         </motion.div>
 
-        {/* Cards */}
         <motion.div
           variants={containerVariants}
           initial="hidden"

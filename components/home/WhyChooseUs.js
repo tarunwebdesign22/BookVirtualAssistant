@@ -28,7 +28,7 @@ export default function WhyChooseUs() {
       className="relative overflow-hidden py-14 sm:py-18 lg:py-24"
       aria-labelledby="why-choose-us-heading"
     >
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white via-[#f4f8ff] to-white" />
+      <div className="pointer-events-none absolute inset-0 bg-[#edf2ff]" />
       <div className="pointer-events-none absolute left-10 top-10 h-60 w-60 rounded-full bg-primary/10 blur-[105px]" />
       <div className="pointer-events-none absolute -right-6 bottom-8 h-72 w-72 rounded-full bg-accent/10 blur-[120px]" />
 

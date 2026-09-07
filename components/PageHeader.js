@@ -3,12 +3,23 @@
 import { motion } from "framer-motion";
 import Badge from "./Badge";
 
-export default function PageHeader({ badge, title, subtitle, description, children }) {
+export default function PageHeader({
+  badge,
+  title,
+  subtitle,
+  description,
+  children,
+  transparent = false,
+}) {
   return (
     <section className="relative mb-16 overflow-hidden pb-12 pt-32 sm:pt-36 lg:pt-40">
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-hero-mid via-background to-hero-end" />
-      <div className="pointer-events-none absolute -left-40 top-20 h-[500px] w-[500px] rounded-full bg-primary/10 blur-[120px]" />
-      <div className="pointer-events-none absolute -right-32 top-1/3 h-[400px] w-[400px] rounded-full bg-accent/10 blur-[100px]" />
+      {!transparent && (
+        <>
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-hero-mid via-background to-hero-end" />
+          <div className="pointer-events-none absolute -left-40 top-20 h-[500px] w-[500px] rounded-full bg-primary/10 blur-[120px]" />
+          <div className="pointer-events-none absolute -right-32 top-1/3 h-[400px] w-[400px] rounded-full bg-accent/10 blur-[100px]" />
+        </>
+      )}
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <motion.div

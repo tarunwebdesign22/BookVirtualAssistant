@@ -23,7 +23,7 @@ function CardShell({ children, dark = false, className = "" }) {
       className={`group h-full overflow-hidden rounded-lg transition-all duration-300 hover:-translate-y-0.5 ${
         dark
           ? "bg-[#0b1220] shadow-lg shadow-black/25 ring-1 ring-white/10"
-          : "bg-[#f3f4f6] shadow-sm shadow-black/5 ring-1 ring-black/5 hover:shadow-md hover:shadow-black/8"
+          : "bg-[#ffffff] shadow-sm shadow-black/5 ring-1 ring-black/5 hover:shadow-md hover:shadow-black/8"
       } ${className}`}
     >
       {children}
