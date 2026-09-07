@@ -22,7 +22,7 @@ export default function CaseStudyCard({ study }) {
         <h3 className="font-heading text-xl font-semibold leading-tight text-white drop-shadow-[0_1px_10px_rgba(0,0,0,0.45)] sm:text-2xl">
           {study.title}
         </h3>
-        <p className="mt-3 max-h-[5.5rem] overflow-hidden text-sm leading-relaxed text-white/90 [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:4] sm:text-base">
+        <p className="mt-3 overflow-hidden text-sm leading-relaxed text-white/90 [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:3] sm:text-base">
           {study.description}
         </p>
 

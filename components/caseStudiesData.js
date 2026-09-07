@@ -7,8 +7,7 @@ export const caseStudyCategories = [
         title: "Consult for PPP",
         description:
           "The biggest challenge for us is – the business niche is complete new for us and first we need to understand...",
-        image:
-          "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80",
+        image: "/assets/img/business-people-working-together_155003-16002.jpg",
         pdf: "/case-study/case-study-consult-for-ppp-converted.pdf",
       },
       {
@@ -16,23 +15,21 @@ export const caseStudyCategories = [
         description:
           "This Social Media Marketing Case Study featured an Indian-based customer who has a “Home Furnishing” business, named: SASSOON FAB...",
         image:
-          "https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=1200&q=80",
+          "/assets/img/woman-holding-instagram-like-icon-with-his-friends-showing-thumbup-sign_23-2147847475.jpg",
         pdf: "/case-study/case-study-social-media-marketing.pdf",
       },
       {
         title: "Guest Posting & Blog Writing",
         description:
           "This Case Study refers to our Guest Posting Services as well as Blog Writing Services for a client and showcased our unique approach to deliver...",
-        image:
-          "https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=1200&q=80",
+        image: "/assets/img/business-partners-meet-with-people_482257-79716.jpg",
         pdf: "/case-study/case-study-of-guest-posting-services.pdf",
       },
       {
         title: "Social Media Marketing",
         description:
           "The Social Media Marketing Case Study features a customer US based Software Company, asked us to build traffic and nurture a Facebook and Twitter...",
-        image:
-          "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80",
+        image: "/assets/img/teamwork-making-online-blog_53876-94868.jpg",
         pdf: "/case-study/case-study-of-social-media-marketing.pdf",
       },
     ],
@@ -44,9 +41,9 @@ export const caseStudyCategories = [
       {
         title: "NopCommerce Development",
         description:
-          "In order to develop one of the trusted online payment gateway solutions for companies and people which helps to smoothly done online payments across the globe...",
+          "In order to develop one of the trusted online payment gateway solutions for companies andpeople which helps to smoothly done online payments across the globe...",
         image:
-          "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1200&q=80",
+          "/assets/img/young-man-using-discount-coupon-his-smartphone-some-online-shopping-laptop_662251-2177.jpg",
         pdf: "/case-study/case-study-of-nopcommerce-development-paytab.pdf",
       },
     ],
@@ -59,8 +56,7 @@ export const caseStudyCategories = [
         title: "Product Visibility & Drive Sales",
         description:
           "The client has been in the lighting business since 2011, specializing in unique lighting for commercial...",
-        image:
-          "https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&w=1200&q=80",
+        image: "/assets/img/woman-live-streaming-online-shopping-campaign_53876-96209.jpg",
         pdf: "/case-study/case-study-sales-increase-in-different-categories-converted.pdf",
       },
     ],
@@ -72,9 +68,8 @@ export const caseStudyCategories = [
       {
         title: "Image Processing",
         description:
-          "To edit more than 4,00,000 images and carrying out image enhancement within a really short timeframe was a real challenge...",
-        image:
-          "https://images.unsplash.com/photo-1542038784456-1ea8e935640e?auto=format&fit=crop&w=1200&q=80",
+          "To edit more than 4, 00,000 images and carrying out image enhancement within a really short timeframe was a real challenge...",
+        image: "/assets/img/photographer-looking-negatives_23-2148019147.jpg",
         pdf: "/case-study/case-study-of-image-processing.pdf",
       },
       {
@@ -82,7 +77,7 @@ export const caseStudyCategories = [
         description:
           "The smart and scalable services to get thousands of Real Estate images edited with superior quality and fast! Our Real Estate Photo Editing Services...",
         image:
-          "https://images.unsplash.com/photo-1598488035139-bdcb86d5c3f2?auto=format&fit=crop&w=1200&q=80",
+          "/assets/img/video-editor-content-creator-filming-tutorial-about-professionally-editing-footage_482257-82231.jpg",
         pdf: "/case-study/case-study-of-image-editing.pdf",
       },
     ],
@@ -102,11 +97,5 @@ export const homepageCaseStudies = [
   caseStudyCategories[0].studies[0],
   caseStudyCategories[0].studies[1],
   caseStudyCategories[0].studies[2],
-  {
-    title: "Back Office Operations",
-    description:
-      "See how a distributed ops pod streamlined recurring tasks and allowed core teams to focus on high-impact strategic goals.",
-    image:
-      "https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1200&q=80",
-  },
+  caseStudyCategories[0].studies[3],
 ];

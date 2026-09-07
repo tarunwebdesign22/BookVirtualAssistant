@@ -42,7 +42,7 @@ export const solutions = [
     image: "/images/a-sleek-ai-powered-virtual-assistant-hologram-proj (1)-min.png",
     href: "/hire-data-analytics-experts",
     variant: "standard",
-    theme: "dark",
+    theme: "light",
   },
   {
     title: "Virtual Assistants",
@@ -51,6 +51,33 @@ export const solutions = [
     image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80",
     href: "/call-center-services",
     variant: "standard",
+    theme: "light",
+  },
+  {
+    title: "Amazon Experts",
+    description:
+      "Listing optimization, ads, and account operations that help your Amazon store scale with confidence.",
+    image: "/images/services/amazon-virtual-assistants-online-bn.png",
+    href: "/hire-amazon-va",
+    variant: "featured",
+    theme: "light",
+  },
+  {
+    title: "Shopify Developers",
+    description:
+      "Custom storefronts, themes, and integrations built for conversion and seamless ecommerce growth.",
+    image: "/images/services/shopify-banner-1.png",
+    href: "/hire-shopify-developer",
+    variant: "horizontal-reverse",
+    theme: "light",
+  },
+  {
+    title: "Lead Generation",
+    description:
+      "Qualified pipeline support and outreach systems that keep your sales team focused on closing deals.",
+    image: "/images/services/hire-lead-generation-specialist-bn.png",
+    href: "/hire-lead-generation-specialist",
+    variant: "horizontal",
     theme: "light",
   },
 ];

@@ -7,7 +7,7 @@ import CaseStudyCard from "./CaseStudyCard";
 import { caseStudyCategories } from "./caseStudiesData";
 
 export default function CaseStudiesPage() {
-  const [activeTab, setActiveTab] = useState("graphic-designing");
+  const [activeTab, setActiveTab] = useState("digital-marketing");
 
   const activeCategory = caseStudyCategories.find((category) => category.id === activeTab);
 

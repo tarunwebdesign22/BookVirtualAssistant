@@ -39,7 +39,7 @@ export default function Hero() {
         <source src="/images/bannervideo.webm" type="video/webm" />
       </video>
 
-      <div className="pointer-events-none absolute inset-0 bg-black/65" />
+      <div className="pointer-events-none absolute inset-0 bg-black/35" />
 
       <div className="relative z-10 mx-auto w-full max-w-4xl px-4 text-center sm:px-6 lg:px-8">
         <motion.div

@@ -1,15 +1,26 @@
-import { Outfit, Inter } from "next/font/google";
+import localFont from "next/font/local";
+import { Google_Sans } from "next/font/google";
 import "./globals.css";
 
-const outfit = Outfit({
-  variable: "--font-outfit",
-  subsets: ["latin"],
+const scoutieSans = localFont({
+  src: [
+    {
+      path: "./fonts/scoutie/ScoutieSans-Variable.woff2",
+      style: "normal",
+    },
+    {
+      path: "./fonts/scoutie/ScoutieSans-Italic-Variable.woff2",
+      style: "italic",
+    },
+  ],
+  variable: "--font-scoutie",
   display: "swap",
+  weight: "200 800",
 });
 
-const inter = Inter({
-  variable: "--font-inter",
+const googleSans = Google_Sans({
   subsets: ["latin"],
+  variable: "--font-google-sans",
   display: "swap",
 });
 
@@ -21,7 +32,10 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${outfit.variable} ${inter.variable} h-full scroll-smooth antialiased`}>
+    <html
+      lang="en"
+      className={`${scoutieSans.variable} ${googleSans.variable} h-full scroll-smooth antialiased`}
+    >
       <body className="min-h-full font-body text-foreground">{children}</body>
     </html>
   );

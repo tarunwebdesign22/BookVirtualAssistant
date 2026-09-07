@@ -2,11 +2,66 @@
 
 import { motion } from "framer-motion";
 import Badge from "../Badge";
+import CTAButton from "../CTAButton";
 import SolutionCard from "./SolutionCard";
 import { solutions } from "./solutionsData";
 
+const HOMEPAGE_SOLUTIONS_COUNT = 9;
+
+function BentoRow({ featured, stack, reverse = false }) {
+  const featuredCol = (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-40px" }}
+      transition={{ duration: 0.5 }}
+      className="h-full"
+    >
+      <SolutionCard item={featured} />
+    </motion.div>
+  );
+
+  const stackCol = (
+    <div className="flex flex-col gap-4 sm:gap-5">
+      {stack.map((item, index) => (
+        <motion.div
+          key={item.title}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-40px" }}
+          transition={{ duration: 0.5, delay: 0.08 * (index + 1) }}
+          className="flex-1"
+        >
+          <SolutionCard item={item} />
+        </motion.div>
+      ))}
+    </div>
+  );
+
+  return (
+    <div className="grid gap-4 sm:gap-5 lg:grid-cols-2 lg:items-stretch">
+      {reverse ? (
+        <>
+          {stackCol}
+          {featuredCol}
+        </>
+      ) : (
+        <>
+          {featuredCol}
+          {stackCol}
+        </>
+      )}
+    </div>
+  );
+}
+
 export default function Solutions() {
-  const [featured, horizontal, horizontalReverse, ...bottomCards] = solutions;
+  const visibleSolutions = solutions.slice(0, HOMEPAGE_SOLUTIONS_COUNT);
+  const topFeatured = visibleSolutions[0];
+  const topStack = visibleSolutions.slice(1, 3);
+  const middleCards = visibleSolutions.slice(3, 6);
+  const bottomFeatured = visibleSolutions[6];
+  const bottomStack = visibleSolutions.slice(7, 9);
 
   return (
     <section
@@ -40,37 +95,10 @@ export default function Solutions() {
         </motion.div>
 
         <div className="mt-10 space-y-4 sm:mt-12 sm:space-y-5">
-          {/* Top bento: large featured + two stacked horizontals */}
-          <div className="grid gap-4 sm:gap-5 lg:grid-cols-2 lg:items-stretch">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-40px" }}
-              transition={{ duration: 0.5 }}
-              className="h-full"
-            >
-              <SolutionCard item={featured} />
-            </motion.div>
+          <BentoRow featured={topFeatured} stack={topStack} />
 
-            <div className="flex flex-col gap-4 sm:gap-5">
-              {[horizontal, horizontalReverse].map((item, index) => (
-                <motion.div
-                  key={item.title}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-40px" }}
-                  transition={{ duration: 0.5, delay: 0.08 * (index + 1) }}
-                  className="flex-1"
-                >
-                  <SolutionCard item={item} />
-                </motion.div>
-              ))}
-            </div>
-          </div>
-
-          {/* Bottom row: three equal cards */}
           <div className="grid gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
-            {bottomCards.map((item, index) => (
+            {middleCards.map((item, index) => (
               <motion.div
                 key={item.title}
                 initial={{ opacity: 0, y: 20 }}
@@ -83,7 +111,21 @@ export default function Solutions() {
               </motion.div>
             ))}
           </div>
+
+          <BentoRow featured={bottomFeatured} stack={bottomStack} reverse />
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="mt-10 flex justify-center sm:mt-12"
+        >
+          <CTAButton href="/get-started" size="lg">
+            View All Services
+          </CTAButton>
+        </motion.div>
       </div>
     </section>
   );

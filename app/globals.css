@@ -29,8 +29,8 @@
   --color-footer: var(--footer);
   --color-footer-mid: var(--footer-mid);
   --color-footer-end: var(--footer-end);
-  --font-heading: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
-  --font-body: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-google-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-scoutie), ui-sans-serif, system-ui, sans-serif;
   --font-sans: var(--font-body);
   --radius-sm: 6px;
   --radius: 6px;
