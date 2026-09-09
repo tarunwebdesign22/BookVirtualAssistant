@@ -1,5 +1,6 @@
 import localFont from "next/font/local";
 import { Google_Sans } from "next/font/google";
+import ScrollToTop from "../components/ScrollToTop";
 import "./globals.css";
 
 const scoutieSans = localFont({
@@ -36,7 +37,11 @@ export default function RootLayout({ children }) {
       lang="en"
       className={`${scoutieSans.variable} ${googleSans.variable} h-full scroll-smooth antialiased`}
     >
-      <body className="min-h-full font-body text-foreground">{children}</body>
+      <body className="min-h-full font-body text-foreground">
+        {children}
+        <ScrollToTop />
+      </body>
     </html>
   );
 }
+

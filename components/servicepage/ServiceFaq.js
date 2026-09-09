@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, HelpCircle } from "lucide-react";
 import ServiceSectionHeader from "./ServiceSectionHeader";
@@ -54,26 +55,69 @@ function FaqItem({ faq, isOpen, onToggle }) {
   );
 }
 
-export default function ServiceFaq({ badge, title, items = [], titleId }) {
+export default function ServiceFaq({
+  badge,
+  title,
+  items = [],
+  titleId,
+  image = "/images/faq-image.webp",
+  imageAlt = "Frequently asked questions",
+}) {
   const [openIndex, setOpenIndex] = useState(0);
 
   if (items.length === 0) return null;
 
+  const faqList = (
+    <div className="space-y-3">
+      {items.map((faq, index) => (
+        <FaqItem
+          key={faq.question}
+          faq={faq}
+          isOpen={openIndex === index}
+          onToggle={() => setOpenIndex(openIndex === index ? -1 : index)}
+        />
+      ))}
+    </div>
+  );
+
   return (
-    <section className="relative pb-20 sm:pb-28" aria-labelledby={titleId}>
+    <section
+      className="relative py-12 pb-20 sm:py-16 sm:pb-28 lg:py-20"
+      aria-labelledby={titleId}
+    >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <ServiceSectionHeader badge={badge} title={title} titleId={titleId} />
 
-        <div className="mx-auto mt-10 max-w-3xl space-y-3 sm:mt-12">
-          {items.map((faq, index) => (
-            <FaqItem
-              key={faq.question}
-              faq={faq}
-              isOpen={openIndex === index}
-              onToggle={() => setOpenIndex(openIndex === index ? -1 : index)}
-            />
-          ))}
-        </div>
+        {image ? (
+          <div className="mt-10 grid items-start gap-8 sm:mt-12 lg:grid-cols-2 lg:gap-12">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+              className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-slate-200/70 shadow-lg shadow-primary/5 lg:sticky lg:top-[calc(5.5rem+1rem)] lg:aspect-auto lg:min-h-[520px]"
+            >
+              <Image
+                src={image}
+                alt={imageAlt}
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 45vw"
+              />
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.55, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
+            >
+              {faqList}
+            </motion.div>
+          </div>
+        ) : (
+          <div className="mx-auto mt-10 max-w-3xl sm:mt-12">{faqList}</div>
+        )}
       </div>
     </section>
   );

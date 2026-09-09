@@ -119,27 +119,30 @@ export default function ContactUs() {
             >
               <motion.div
                 variants={itemVariants}
-                className="rounded-2xl border border-white/30 bg-white/50 p-6 shadow-lg shadow-primary/5 backdrop-blur-xl"
+                className="relative overflow-hidden rounded-2xl border border-white/15 bg-gradient-to-b from-footer-mid via-footer-mid/98 to-footer-end p-6 shadow-2xl shadow-primary/20 backdrop-blur-xl"
               >
-                <h3 className="font-heading text-lg font-semibold text-foreground">Ask Your Query</h3>
-                <ul className="mt-5 space-y-4" role="list">
+                <div className="pointer-events-none absolute -left-10 top-0 h-28 w-28 rounded-full bg-primary/20 blur-3xl" />
+                <div className="pointer-events-none absolute -right-10 bottom-0 h-28 w-28 rounded-full bg-accent/15 blur-3xl" />
+
+                <h3 className="relative font-heading text-lg font-semibold text-white">Ask Your Query</h3>
+                <ul className="relative mt-5 space-y-4" role="list">
                   {contactMethods.map((method) => (
                     <li key={method.href}>
                       <a
                         href={method.href}
-                        className="group flex items-start gap-4 rounded-xl p-3 transition-colors hover:bg-white/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                        className="group flex items-start gap-4 rounded-xl p-3 transition-colors hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
                       >
-                        <span className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-primary/10 to-accent/15 text-primary transition-transform group-hover:scale-105">
+                        <span className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-white text-primary shadow-sm transition-transform group-hover:scale-105">
                           <method.icon className="h-4 w-4" aria-hidden="true" />
                         </span>
                         <span>
-                          <span className="block text-xs font-medium uppercase tracking-wider text-body/70">
+                          <span className="block text-xs font-medium uppercase tracking-wider text-white/55">
                             {method.label}
                           </span>
-                          <span className="mt-0.5 block text-sm font-medium text-foreground group-hover:text-primary">
+                          <span className="mt-0.5 block text-sm font-medium text-white transition-colors group-hover:text-accent">
                             {method.value}
                           </span>
-                          <span className="mt-0.5 block text-xs text-body">{method.description}</span>
+                          <span className="mt-0.5 block text-xs text-white/65">{method.description}</span>
                         </span>
                       </a>
                     </li>
@@ -149,7 +152,7 @@ export default function ContactUs() {
 
               <motion.div
                 variants={itemVariants}
-                className="rounded-2xl border border-white/30 bg-white/50 p-6 shadow-lg shadow-primary/5 backdrop-blur-xl"
+                className="rounded-2xl border border-black/5 bg-[#f3f4f6] p-6 shadow-lg shadow-primary/5"
               >
                 <div className="flex items-center gap-3">
                   <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-primary/10 to-accent/15 text-primary">

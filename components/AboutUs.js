@@ -205,9 +205,9 @@ export default function AboutUs() {
 
         {/* Learn More About Us */}
         <section className="mt-16 sm:mt-20">
-          <div className="relative overflow-hidden rounded-3xl border border-slate-200/80 bg-slate-100 p-8 sm:p-10 lg:p-14">
-            <div className="pointer-events-none absolute -left-20 top-0 h-64 w-64 rounded-full bg-primary/8 blur-[80px]" />
-            <div className="pointer-events-none absolute -right-20 bottom-0 h-64 w-64 rounded-full bg-accent/8 blur-[80px]" />
+          <div className="relative overflow-hidden rounded-3xl border border-white/15 bg-gradient-to-b from-footer-mid via-footer-mid/98 to-footer-end p-8 shadow-2xl shadow-primary/20 sm:p-10 lg:p-14">
+            <div className="pointer-events-none absolute -left-20 top-0 h-64 w-64 rounded-full bg-primary/20 blur-[80px]" />
+            <div className="pointer-events-none absolute -right-20 bottom-0 h-64 w-64 rounded-full bg-accent/15 blur-[80px]" />
 
             <div className="relative grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
               <motion.div
@@ -216,19 +216,19 @@ export default function AboutUs() {
                 viewport={{ once: true, margin: "-40px" }}
                 transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
               >
-                <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-white px-4 py-1.5 text-sm font-medium text-primary">
+                <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-sm font-medium text-white">
                   <HeartHandshake className="h-4 w-4" aria-hidden="true" />
                   Our Story
                 </div>
-                <h2 className="mt-5 font-heading text-2xl font-semibold text-foreground sm:text-3xl">
+                <h2 className="mt-5 font-heading text-2xl font-semibold text-white sm:text-3xl">
                   Learn More About Us
                 </h2>
-                <p className="mt-4 leading-relaxed text-body">
+                <p className="mt-4 leading-relaxed text-white/75">
                   At our core, we believe in delivering exceptional remote services that blend expertise with
                   real-world experience. Whether you&apos;re looking to streamline your operations or expand your reach,
                   our dedicated team is here to support your journey.
                 </p>
-                <p className="mt-4 leading-relaxed text-body">
+                <p className="mt-4 leading-relaxed text-white/75">
                   With a focus on reliability and personalized solutions, we ensure that every collaboration is
                   meaningful and results-driven. Over the years, we&apos;ve worked with diverse industries, helping
                   businesses overcome challenges and achieve their goals. Our approach is simple — we listen, adapt,
@@ -241,7 +241,7 @@ export default function AboutUs() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true, margin: "-40px" }}
                 transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-                className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-white/50 shadow-xl shadow-primary/10"
+                className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-white/15 shadow-xl shadow-black/30"
               >
                 <Image
                   src="/images/aboutimage2.webp"
